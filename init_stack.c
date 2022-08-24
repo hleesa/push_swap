@@ -12,8 +12,10 @@
 
 #include "push_swap.h"
 
-void	init_stack(t_stack stk)
+void	init_stack(t_stack *stk)
 {
-	stk = (t_stack){NULL, NULL, 0};
+	stk->head = (t_node*) (0, NULL, &stk->tail);
+	stk->tail = (t_node*) (0, &stk->head, NULL);
+	stk->size = 0;
 	return;
 }

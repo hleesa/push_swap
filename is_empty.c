@@ -14,5 +14,5 @@
 
 t_bool is_empty(t_stack stk)
 {
-	return stk.head == NULL;
+	return stk.size == 0;
 }
