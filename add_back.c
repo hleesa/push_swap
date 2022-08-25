@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_bool add_back(t_stack *stk, t_data data)
+t_bool	add_back(t_stack *stk, t_data data)
 {
 	t_node	*new_node;
 

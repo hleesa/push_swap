@@ -14,8 +14,14 @@
 
 void	init_stack(t_stack *stk)
 {
-	stk->head = (t_node*) (0, NULL, &stk->tail);
-	stk->tail = (t_node*) (0, &stk->head, NULL);
+	stk->head = create_node(0);
+	stk->tail = create_node(0);
+	if (stk->head == NULL || stk->tail == NULL)
+		return;
+	stk->head->prev = NULL;
+	stk->head->next = stk->tail;
+	stk->tail->prev = stk->head;
+	stk->tail->next = NULL;
 	stk->size = 0;
 	return;
 }

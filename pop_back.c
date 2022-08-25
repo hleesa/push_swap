@@ -18,7 +18,8 @@ void	pop_back(t_stack *stk)
 
 	back = stk->tail->prev;
 	stk->tail->prev = back->prev;
-	back->prev->next = &stk->tail;
+	back->prev->next = stk->tail;
 	free(back);
 	--stk->size;
+	return ;
 }

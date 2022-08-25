@@ -18,7 +18,8 @@ void	pop_front(t_stack *stk)
 
 	front = stk->head->next;
 	stk->head->next = front->next;
-	front->next->prev = &stk->head;
+	front->next->prev = stk->head;
 	free(front);
 	--stk->size;
+	return ;
 }

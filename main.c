@@ -16,6 +16,8 @@
 
 void print_stack(t_stack *stk)
 {
+	if(stk->head == NULL || stk->size == 0)
+		return;
 	t_node *temp = stk->head->next;
 
 	while(temp != stk->tail)
@@ -23,20 +25,25 @@ void print_stack(t_stack *stk)
 		printf("%d ", temp->data);
 		temp = temp->next;
 	}
+	printf("\n");
 }
 
 int main()
 {
 	t_stack a;
-//	t_stack b;
 
 	init_stack(&a);
-//	init_stack(&b);
 
 	for(int i=1; i<6; ++i)
 	{
 		add_front(&a, i);
 	}
 	print_stack(&a);
-
+//	pop_back(&a);
+//	print_stack(&a);
+	for(int i=1; i<6; ++i)
+	{
+		reverse_rotate(&a);
+		print_stack(&a);
+	}
 }

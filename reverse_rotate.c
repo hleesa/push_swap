@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/20 12:27:09 by salee2            #+#    #+#             */
-/*   Updated: 2022/08/20 12:27:17 by salee2           ###   ########.fr       */
+/*   Created: 2022/08/25 14:15:18 by salee2            #+#    #+#             */
+/*   Updated: 2022/08/25 14:15:19 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(t_stack *a, t_stack *b)
+void	reverse_rotate(t_stack *stk)
 {
-	
+	const t_data	temp = stk->tail->prev->data;
+
+	pop_back(stk);
+	add_front(stk, temp);
 }
