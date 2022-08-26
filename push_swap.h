@@ -15,6 +15,7 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include "libft/libft.h"
 
 # define TRUE 1
 # define FALSE 0
@@ -24,7 +25,7 @@ typedef int t_data;
 
 typedef struct s_node
 {
-//	t_data			data;
+	t_data			data;
 	struct s_node	*prev;
 	struct s_node	*next;
 }	t_node;
@@ -38,10 +39,16 @@ typedef struct s_stack
 
 t_bool	add_back(t_stack *stk, t_data data);
 t_bool	add_front(t_stack *stk, t_data data);
+t_data	back(t_stack *stk);
 t_node	*create_node(t_data data);
-void	init_stack(t_stack *stk);
-t_bool	is_empty(t_stack stk);
+t_data	front(t_stack *stk);
+void	init_stack(t_stack *stk, int argc, char ***argv);
+t_bool	is_empty(t_stack *stk);
 void	pop_back(t_stack *stk);
 void	pop_front(t_stack *stk);
+void	push(t_stack *src, t_stack *dst);
+void	reverse_rotate(t_stack *stk);
+void	rotate(t_stack *stk);
+void	swap(t_stack *stk);
 
 #endif //PUSH_SWAP_H

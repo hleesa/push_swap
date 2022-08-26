@@ -14,8 +14,9 @@
 
 void	rotate(t_stack *stk)
 {
-	const t_data	temp = stk->head->next->data;
+	t_data	temp;
 
+	temp = stk->head->next->data;
 	pop_front(stk);
 	add_back(stk, temp);
 	return;

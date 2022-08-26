@@ -14,8 +14,9 @@
 
 void	reverse_rotate(t_stack *stk)
 {
-	const t_data	temp = stk->tail->prev->data;
+	t_data	temp;
 
+	temp = stk->tail->prev->data;
 	pop_back(stk);
 	add_front(stk, temp);
 }

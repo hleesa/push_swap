@@ -14,5 +14,5 @@
 
 void	push_swap(t_stack *a, t_stack *b)
 {
-	
+	if(front(a) )
 }

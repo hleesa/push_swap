@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	init_stack(t_stack *stk)
+void	init_stack(t_stack *stk, int argc, char ***argv)
 {
 	stk->head = create_node(0);
 	stk->tail = create_node(0);
@@ -23,5 +23,7 @@ void	init_stack(t_stack *stk)
 	stk->tail->prev = stk->head;
 	stk->tail->next = NULL;
 	stk->size = 0;
+	while(--argc)
+		add_front(stk, ft_atoi((*argv)[argc]));
 	return;
 }

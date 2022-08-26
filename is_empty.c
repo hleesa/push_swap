@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_bool is_empty(t_stack stk)
+t_bool is_empty(t_stack *stk)
 {
-	return stk.size == 0;
+	return stk->size == 0;
 }
