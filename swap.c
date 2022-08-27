@@ -23,3 +23,12 @@ void	swap(t_stack *stk)
 	stk->head->next->next->data = temp;
 	return;
 }
+
+void	swap_x(t_stack *stk, char stk_name)
+{
+	swap(stk);
+	write(1, "s", 1);
+	write(1, &swap_x, 1);
+	write(1, "\n", 1);
+	return ;
+}

@@ -14,11 +14,17 @@
 
 void	push(t_stack *src, t_stack *dst)
 {
-	t_data	data;
-
-	if (dst->size == 0)
+	if (src->size == 0)
 		return;
-	data = front(dst);
-	pop_front(dst);
-	add_front(src, data);
+	add_front(dst, front(src));
+	pop_front(src);
+}
+
+void	push_x(t_stack *src, t_stack *dst, char stk_name)
+{
+	push(src, dst);
+	write(1, "p", 1);
+	write(1, &stk_name, 1);
+	write(1, "\n", 1);
+	return;
 }

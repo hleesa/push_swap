@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_front.c                                        :+:      :+:    :+:   */
+/*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 11:47:49 by salee2            #+#    #+#             */
-/*   Updated: 2022/08/24 11:47:50 by salee2           ###   ########.fr       */
+/*   Created: 2022/08/22 16:22:53 by salee2            #+#    #+#             */
+/*   Updated: 2022/08/22 16:22:56 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_bool	add_front(t_stack *stk, t_data data)
+void	init_stack(t_stack *stk)
 {
-	t_node	*new_node;
+	stk->head = create_node(0);
+	stk->tail = create_node(0);
+	if (stk->head == NULL || stk->tail == NULL)
+		return;
+	stk->head->prev = NULL;
+	stk->head->next = stk->tail;
+	stk->tail->prev = stk->head;
+	stk->tail->next = NULL;
+	stk->size = 0;
+	return;
+}
 
-	new_node = create_node(data);
-	if (new_node == NULL)
-		return FALSE;
-	new_node->next = stk->head->next;
-	new_node->prev = stk->head;
-	stk->head->next->prev = new_node;
-	stk->head->next = new_node;
-	++stk->size;
-	return TRUE;
+void	init_stack_arg(t_stack *stk, int argc, char ***argv)
+{
+	init_stack(stk);
+	while(--argc)
+		add_front(stk, ft_atoi((*argv)[argc]));
+	return;
 }

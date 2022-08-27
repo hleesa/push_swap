@@ -39,16 +39,24 @@ typedef struct s_stack
 
 t_bool	add_back(t_stack *stk, t_data data);
 t_bool	add_front(t_stack *stk, t_data data);
-t_data	back(t_stack *stk);
 t_node	*create_node(t_data data);
-t_data	front(t_stack *stk);
-void	init_stack(t_stack *stk, int argc, char ***argv);
+int		get_num_of_rotate(t_data top, t_stack *stk);
+void	init_stack(t_stack *stk);
+void	init_stack_arg(t_stack *stk, int argc, char ***argv);
 t_bool	is_empty(t_stack *stk);
+t_data	back(t_stack *stk);
+t_data	front(t_stack *stk);
 void	pop_back(t_stack *stk);
 void	pop_front(t_stack *stk);
-void	push(t_stack *src, t_stack *dst);
-void	reverse_rotate(t_stack *stk);
-void	rotate(t_stack *stk);
-void	swap(t_stack *stk);
+void	push_x(t_stack *src, t_stack *dst, char stk_name);
+void	push_swap(t_stack *a, t_stack *b);
+void	reverse_rotate_repeat_x(t_stack *stk, char stk_name, int num_of_repeat);
+void	rotate_repeat_x(t_stack *stk, char stk_name, int num_of_repeat);
+void	swap_x(t_stack *stk, char stk_name);
+
+
+
+
+void print_stack(t_stack *stk);
 
 #endif //PUSH_SWAP_H

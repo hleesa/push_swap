@@ -1,18 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   back.c                                             :+:      :+:    :+:   */
+/*   pop_back.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/26 18:13:37 by salee2            #+#    #+#             */
-/*   Updated: 2022/08/26 18:13:38 by salee2           ###   ########.fr       */
+/*   Created: 2022/08/24 11:54:05 by salee2            #+#    #+#             */
+/*   Updated: 2022/08/24 11:54:06 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_data	back(t_stack *stk)
+void	pop_back(t_stack *stk)
 {
-	return stk->tail->prev->data;
+	t_node *back;
+
+	back = stk->tail->prev;
+	stk->tail->prev = back->prev;
+	back->prev->next = stk->tail;
+	free(back);
+	--stk->size;
+	return ;
+}
+
+void	pop_front(t_stack *stk)
+{
+	t_node *front;
+
+	front = stk->head->next;
+	stk->head->next = front->next;
+	front->next->prev = stk->head;
+	free(front);
+	--stk->size;
+	return ;
 }

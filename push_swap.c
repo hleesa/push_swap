@@ -14,5 +14,22 @@
 
 void	push_swap(t_stack *a, t_stack *b)
 {
-	if(front(a) )
+	int num_of_rotate;
+
+	while (a->size > 0)
+	{
+		num_of_rotate = get_num_of_rotate(front(a), b);
+		if (num_of_rotate > 0)
+			rotate_repeat_x(b, 'b', num_of_rotate);
+		else
+			reverse_rotate_repeat_x(b, 'b', -num_of_rotate);
+		push_x(a, b, 'b');
+		if (num_of_rotate > 0)
+			reverse_rotate_repeat_x(b, 'b', num_of_rotate);
+		else
+			rotate_repeat_x(b, 'b', -num_of_rotate);
+	}
+	while (b->size > 0)
+		push_x(b, a, 'a');
+	return;
 }
