@@ -36,17 +36,17 @@ int main(int argc, char** argv)
 	t_stack a;
 	t_stack b;
 
-	init_stack(&a);
-	init_stack_arg(&b, argc, &argv);
-	add_front(&a, 35);
-	printf("a :");
-	print_stack(&a);
-	printf("b :");
-	print_stack(&b);
+	init_stack_arg(&a, argc, &argv);
+	init_stack(&b);
+//	add_front(&a, 35);
+//	printf("a :");
+//	print_stack(&a);
+//	printf("b :");
+//	print_stack(&b);
 	push_swap(&a, &b);
-	printf("a :");
-	print_stack(&a);
-	printf("b :");
-	print_stack(&b);
+//	printf("a :");
+//	print_stack(&a);
+//	printf("b :");
+//	print_stack(&b);
 
 }

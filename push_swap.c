@@ -12,13 +12,19 @@
 
 #include "push_swap.h"
 
+#include <stdio.h>
 void	push_swap(t_stack *a, t_stack *b)
 {
 	int num_of_rotate;
 
+	push_x(a, b, 'b');
+	push_x(a, b, 'b');
+	if (front(b) < back(b))
+		swap_x(b, 'b');
 	while (a->size > 0)
 	{
 		num_of_rotate = get_num_of_rotate(front(a), b);
+		printf("%d\n", num_of_rotate);
 		if (num_of_rotate > 0)
 			rotate_repeat_x(b, 'b', num_of_rotate);
 		else

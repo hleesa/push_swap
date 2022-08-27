@@ -6,18 +6,18 @@
 #    By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/27 16:18:40 by salee2            #+#    #+#              #
-#    Updated: 2022/08/27 16:18:43 by salee2           ###   ########.fr        #
+#    Updated: 2022/08/27 19:50:08 by salee2           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= push_swap
-LIBFTDIR	= ./libft
-LIBFTFILE	= libft.a
+NAME		:= push_swap
+LIBFTDIR	:= ./libft
+LIBFTFILE	:= libft.a
 
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
-AR			= ar rcs
-RM			= rm -f
+CC			:= cc
+CFLAGS		:= -Wall -Wextra -Werror -I$(LIBFTDIR)
+AR			:= ar rcs
+RM			:= rm -f
 
 SRCS = \
 	add.c \
@@ -32,22 +32,22 @@ SRCS = \
 	reverse_rotate.c \
 	rotate.c \
 	swap.c \
+	main.c	\
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:c=o)
 
-all: $(LIBFTFILE) $(NAME)
-
-$(LIBFTFILE) :
-	make -C $(LIBFTDIR)
+all: $(NAME)
 
 $(NAME): $(OBJS)
+	make -C $(LIBFTDIR)
+	$(CC) $(CFLAGS) -o $@ $^ $(LIBFTDIR)/$(LIBFTFILE)
 
-%.o: %.c
+%o: %c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
 	make -C $(LIBFTDIR) clean
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(LIBFTFILE)
 
 fclean: clean
 	make -C $(LIBFTDIR) fclean

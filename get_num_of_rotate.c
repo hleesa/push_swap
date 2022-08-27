@@ -41,7 +41,7 @@ int	get_num_of_rotate(t_data top, t_stack *stk)
 		ret = rotate_num;
 	else
 		ret = -reverse_rotate_num;
-	printf("grn: %d\n", rotate_num);
-	printf("grrn: %d\n", reverse_rotate_num);
+//	printf("grn: %d\n", rotate_num);
+//	printf("grrn: %d\n", reverse_rotate_num);
 	return ret;
 }
