@@ -38,7 +38,6 @@ int main(int argc, char** argv)
 
 	init_stack_arg(&a, argc, &argv);
 	init_stack(&b);
-//	add_front(&a, 35);
 //	printf("a :");
 //	print_stack(&a);
 //	printf("b :");

@@ -23,8 +23,26 @@ void	push_swap(t_stack *a, t_stack *b)
 		swap_x(b, 'b');
 	while (a->size > 0)
 	{
+//		printf("a :");
+//		print_stack(a);
+//		printf("b :");
+//		print_stack(b);
+
+		if (front(a) < back(b))
+		{
+			push_x(a, b, 'b');
+			rotate_repeat_x(b, 'b', 1);
+			continue;
+		}
+		if (front(a) > front(b))
+		{
+			push_x(a, b, 'b');
+			continue ;
+		}
 		num_of_rotate = get_num_of_rotate(front(a), b);
-		printf("%d\n", num_of_rotate);
+
+//		printf("n_o_r: %d\n", num_of_rotate);
+
 		if (num_of_rotate > 0)
 			rotate_repeat_x(b, 'b', num_of_rotate);
 		else
@@ -33,8 +51,12 @@ void	push_swap(t_stack *a, t_stack *b)
 		if (num_of_rotate > 0)
 			reverse_rotate_repeat_x(b, 'b', num_of_rotate);
 		else
-			rotate_repeat_x(b, 'b', -num_of_rotate);
+			rotate_repeat_x(b, 'b', -num_of_rotate + 1);
 	}
+//	printf("a :");
+//	print_stack(a);
+//	printf("b :");
+//	print_stack(b);
 	while (b->size > 0)
 		push_x(b, a, 'a');
 	return;
