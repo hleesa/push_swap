@@ -12,24 +12,46 @@
 
 #include "push_swap.h"
 
-void	init_stack(t_stack *stk)
+
+void	init_stack(t_stack *stk, char name)
 {
 	stk->head = create_node(0);
 	stk->tail = create_node(0);
 	if (stk->head == NULL || stk->tail == NULL)
 		return;
+	stk->name = name;
+	stk->size = 0;
 	stk->head->prev = NULL;
 	stk->head->next = stk->tail;
 	stk->tail->prev = stk->head;
 	stk->tail->next = NULL;
-	stk->size = 0;
 	return;
 }
 
-void	init_stack_arg(t_stack *stk, int argc, char ***argv)
+void	init_stack_arg(t_stack *stk, int argc, char ***argv, char name)
 {
-	init_stack(stk);
-	while(--argc)
-		add_front(stk, ft_atoi((*argv)[argc]));
-	return;
+	int 	i;
+	int 	args_idx;
+	char	**args;
+	t_bool	is_error;
+
+	init_stack(stk, name);
+	i = 1;
+	while(i < argc)
+	{
+		args = ft_split((*argv)[i],' ');
+		if(args == NULL)
+			exit(print_error());
+		args_idx = 0;
+		while(args[args_idx])
+		{
+			is_error = 0;
+			add_back(stk, ft_atoi(args[args_idx], &is_error));
+			if (is_error)
+				exit(print_error());
+			++args_idx;
+		}
+		++i;
+	}
+	return ;
 }

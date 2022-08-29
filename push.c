@@ -20,11 +20,11 @@ void	push(t_stack *src, t_stack *dst)
 	pop_front(src);
 }
 
-void	push_x(t_stack *src, t_stack *dst, char stk_name)
+void	push_dst(t_stack *src, t_stack *dst)
 {
 	push(src, dst);
-	write(1, "p", 1);
-	write(1, &stk_name, 1);
-	write(1, "\n", 1);
+	ft_putchar_fd('p', 1);
+	ft_putchar_fd(dst->name, 1);
+	ft_putchar_fd('\n', 1);
 	return;
 }

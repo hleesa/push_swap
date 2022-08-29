@@ -27,8 +27,6 @@ int	num_of_rotate(t_data top, t_stack *stk)
 	return ret;
 }
 
-#include <stdio.h>
-
 int	get_num_of_rotate(t_data top, t_stack *stk)
 {
 	int	ret;
@@ -44,4 +42,27 @@ int	get_num_of_rotate(t_data top, t_stack *stk)
 //	printf("grn: %d\n", rotate_num);
 //	printf("grrn: %d\n", reverse_rotate_num);
 	return ret;
+}
+
+int	*get_sorted_arr(t_stack *stk, size_t *len)
+{
+	int		*ret;
+	size_t	i;
+	t_node	*cur;
+
+	*len = 0;
+	ret = malloc(sizeof(int) * stk->size);
+	if(ret == NULL)
+		return (NULL);
+	i = 0;
+	*len = stk->size;
+	cur = stk->head->next;
+	while (i < *len)
+	{
+		ret[i] = cur->data;
+		++i;
+		cur = cur->next;
+	}
+	selection_sort(ret, *len);
+	return (ret);
 }

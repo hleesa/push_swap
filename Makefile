@@ -22,15 +22,17 @@ RM			:= rm -f
 SRCS = \
 	add.c \
 	create_node.c \
-	get_num_of_rotate.c \
+	get.c \
 	init.c \
 	is.c \
 	peek.c \
 	pop.c \
+	print.c \
 	push.c \
 	push_swap.c \
 	reverse_rotate.c \
 	rotate.c \
+	sort.c	\
 	swap.c \
 	main.c	\
 

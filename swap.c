@@ -24,11 +24,11 @@ void	swap(t_stack *stk)
 	return;
 }
 
-void	swap_x(t_stack *stk, char stk_name)
+void	swap_x(t_stack *stk)
 {
 	swap(stk);
-	write(1, "s", 1);
-	write(1, &stk_name, 1);
-	write(1, "\n", 1);
+	ft_putchar_fd('s', 1);
+	ft_putchar_fd(stk->name, 1);
+	ft_putchar_fd('\n', 1);
 	return ;
 }
