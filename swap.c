@@ -32,3 +32,11 @@ void	swap_x(t_stack *stk)
 	ft_putchar_fd('\n', 1);
 	return ;
 }
+
+void	ss(t_stack *a, t_stack *b)
+{
+	swap(a);
+	swap(b);
+	ft_putendl_fd("ss", 1);
+	return;
+}

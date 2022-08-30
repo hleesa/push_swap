@@ -47,9 +47,12 @@ void	init_stack(t_stack *stk, char name);
 void	init_stack_arg(t_stack *stk, int argc, char ***argv, char name);
 t_bool	is_empty(t_stack *stk);
 t_bool 	is_duplicate(int *sorted_arr, int arr_len);
-t_bool	is_sorted(t_stack *a, t_stack *data);
+t_bool	is_sorted(t_stack *a, t_data *sort_arr, size_t arr_len);
+void	move_a_to_b(t_stack *a, t_stack *b, int *sorted_arr, int arr_len);
+void	move_b_to_a(t_stack *a, t_stack *b, int *sorted_arr, int arr_len);
 t_data	back(t_stack *stk);
 t_data	front(t_stack *stk);
+t_data	front_second(t_stack *stk);
 void	pop_back(t_stack *stk);
 void	pop_front(t_stack *stk);
 int		print_error(void);
@@ -57,10 +60,13 @@ void	push_dst(t_stack *src, t_stack *dst);
 void	push_swap(t_stack *a, t_stack *b);
 void	reverse_rotate_repeat_x(t_stack *stk, int num_of_repeat);
 void	rotate_repeat_x(t_stack *stk, int num_of_repeat);
+void	rotate_x(t_stack *stk);
 void	sel_sort(t_stack *stk);
 void	selection_sort(int *data, size_t len);
-void	base_two_sort(t_stack *src, t_stack *dst);
+void	sort_a_half(t_stack *a, t_stack *b);
+void	sort_b_half(t_stack *a, t_stack *b);
 void	swap_x(t_stack *stk);
+void	ss(t_stack *a, t_stack *b);
 
 
 

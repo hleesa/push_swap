@@ -21,3 +21,8 @@ t_data	front(t_stack *stk)
 {
 	return stk->head->next->data;
 }
+
+t_data	front_second(t_stack *stk)
+{
+	return stk->head->next->next->data;
+}

@@ -25,6 +25,7 @@ SRCS = \
 	get.c \
 	init.c \
 	is.c \
+	move.c \
 	peek.c \
 	pop.c \
 	print.c \

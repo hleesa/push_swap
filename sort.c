@@ -64,13 +64,51 @@ void	selection_sort(int *arr, size_t len)
 	return ;
 }
 
-void	base_two_sort(t_stack *src, t_stack *dst)
+void	sort_a(t_stack *a, t_stack *b)
 {
-	while(dst->size < 2 && src != dst && !is_empty(src))
-//	while(src != dst && !is_empty(src))
-//		push_dst(src, dst);
-	if (dst->name == 'a' && front(dst) > dst->head->next->next->data)
-		swap_x(dst);
-	if (dst->name == 'b' && front(dst) < dst->head->next->next->data)
-		swap_x(dst);
+	if(front(a) > front_second(a))
+	{
+		if (front(b) < front_second(b))
+			ss(a, b);
+		else
+			swap_x(a);
+	}
 }
+
+void	sort_a_half(t_stack *a, t_stack *b)
+{
+	size_t a_size;
+
+	a_size = a->size + b->size;
+	a_size = a_size / 2 + a_size % 2;
+	while(a->size < a_size)
+	{
+		sort_a(a, b);
+		push_dst(b, a);
+	}
+}
+
+void	sort_b(t_stack *a, t_stack *b)
+{
+	if(front(b) < front_second(b))
+	{
+		if (front(a) > front_second(a))
+			ss(a, b);
+		else
+			swap_x(b);
+	}
+}
+
+void	sort_b_half(t_stack *a, t_stack *b)
+{
+	size_t b_szie;
+
+	b_szie = a->size + b->size;
+	b_szie = b_szie / 2;
+	while(b->size < b_szie)
+	{
+		sort_b(a, b);
+		push_dst(a, b);
+	}
+}
+

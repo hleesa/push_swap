@@ -33,21 +33,21 @@ t_bool is_duplicate(int *sorted_arr, int arr_len)
 	return (0);
 }
 
-t_bool	is_sorted(t_stack *a, t_stack *data)
+t_bool	is_sorted(t_stack *a, t_data *sorted_arr, size_t arr_len)
 {
+	size_t 	i;
 	t_node	*a_cur;
-	t_node	*d_cur;
 
-	if (a->size != data->size)
+	if (a->size != arr_len)
 		return (0);
+	i = 0;
 	a_cur = a->head->next;
-	d_cur = data->head->next;
-	while(a_cur != a->tail)
+	while(i < arr_len)
 	{
-		if(a_cur->data != d_cur->data)
+		if(a_cur->data != sorted_arr[i])
 			return (0);
+		++i;
 		a_cur = a_cur->next;
-		d_cur = d_cur->next;
 	}
 	return (1);
 }
