@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   preprocess.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/29 15:15:30 by salee2            #+#    #+#             */
-/*   Updated: 2022/08/29 15:15:31 by salee2           ###   ########.fr       */
+/*   Created: 2022/08/31 17:56:35 by salee2            #+#    #+#             */
+/*   Updated: 2022/08/31 17:56:35 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	selection_sort(int *arr, size_t len)
+void	preprocess_stack(t_stack *a)
 {
 	size_t	i;
 	size_t	j;
-	size_t	min_idx;
-	t_data 	temp;
+	t_arr	arr;
+	t_node	*cur;
 
+	arr.data = get_sorted_arr(a, &arr.size);
+	if (arr.data == NULL)
+		exit(print_error());
 	i = 0;
-	while(i < len)
+	cur = a->head->next;
+	while (i < arr.size)
 	{
-		min_idx = i;
-		j = i + 1;
-		while (j < len)
-		{
-			if (arr[j] < arr[min_idx])
-				min_idx = j;
+		j = 0;
+		while (j < arr.size && cur->data != arr.data[j])
 			++j;
-		}
-		temp = arr[i];
-		arr[i] = arr[min_idx];
-		arr[min_idx] = temp;
+		cur->data = j;
 		++i;
+		cur = cur->next;
 	}
+	free(arr.data);
 	return ;
 }

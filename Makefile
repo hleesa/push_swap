@@ -25,11 +25,13 @@ SRCS = \
 	get.c \
 	init.c \
 	is.c \
-	move.c \
 	peek.c \
 	pop.c \
+	preprocess.c \
 	print.c \
 	push.c \
+	push_a.c \
+	push_b.c \
 	push_swap.c \
 	reverse_rotate.c \
 	rotate.c \

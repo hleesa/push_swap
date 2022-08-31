@@ -1,43 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   push_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/30 10:23:23 by salee2            #+#    #+#             */
-/*   Updated: 2022/08/30 10:23:24 by salee2           ###   ########.fr       */
+/*   Created: 2022/08/31 13:47:24 by salee2            #+#    #+#             */
+/*   Updated: 2022/08/31 13:47:27 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	move_to_b(t_stack *a, t_stack *b, int *sorted_arr, int arr_len)
-{
-	int i;
-	int i_end;
-	int max_b_val;
-
-	max_b_val = sorted_arr[arr_len - (a->size / 2 + a->size % 2)];
-	i =0;
-	i_end = a->size;
-	while(i < i_end)
-	{
-		if(front(a) < max_b_val)
-			push_dst(a, b);
-		else
-			rotate_x(a);
-		++i;
-	}
-	return ;
-}
-
-void	move_a_to_b(t_stack *a, t_stack *b, int *sorted_arr, int arr_len)
-{
-	while(a->size > 2)
-		move_to_b(a, b, sorted_arr, arr_len);
-	return;
-}
 
 void	move_to_a(t_stack *a, t_stack *b, int *sorted_arr, int arr_len)
 {
@@ -67,5 +40,31 @@ void	move_b_to_a(t_stack *a, t_stack *b, int *sorted_arr, int arr_len)
 		move_to_a(a, b, sorted_arr, arr_len);
 	return;
 }
+
+void	sort_b(t_stack *a, t_stack *b)
+{
+	if(front(b) < front_second(b))
+	{
+		if (front(a) > front_second(a))
+			ss(a, b);
+		else
+			swap_x(b);
+	}
+}
+
+void	sort_b_half(t_stack *a, t_stack *b)
+{
+	size_t b_szie;
+
+	b_szie = a->size + b->size;
+	b_szie = b_szie / 2;
+	while(b->size < b_szie)
+	{
+		sort_b(a, b);
+		push_dst(a, b);
+	}
+}
+
+
 
 
