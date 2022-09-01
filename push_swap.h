@@ -40,19 +40,30 @@ typedef struct s_stack
 
 typedef struct s_arr
 {
-	int 	*data;
+	t_data 	*data;
 	size_t	size;
 }	t_arr;
+
+typedef	struct s_lis
+{
+	t_arr	arr;
+	size_t	size;
+}	t_lis;
 
 t_bool	add_back(t_stack *stk, t_data data);
 t_bool	add_front(t_stack *stk, t_data data);
 t_node	*create_node(t_data data);
+size_t	max(size_t a, size_t b);
 int		get_num_of_rotate(t_data top, t_stack *stk);
 int		*get_sorted_arr(t_stack *stk, size_t *len);
 void	init(t_stack *a, t_stack *b, int argc, char ***argv);
 t_bool	is_empty(t_stack *stk);
 t_bool	is_duplicate(t_stack *stk);
 t_bool	is_sorted(t_stack *a, t_stack *b);
+void	stack_to_arr(t_stack *stk, t_arr *arr);
+void	get_lis(t_stack *stk, t_arr *memo, t_arr *from);
+void	get_is_lis(t_arr *arr, t_arr *memo, t_arr *from, t_arr *is_lis);
+void	stack_to_is_lis(t_stack *stk, t_lis *is_lis);
 void	move_a_to_b(t_stack *a, t_stack *b, int *sorted_arr, int arr_len);
 void	move_b_to_a(t_stack *a, t_stack *b, int *sorted_arr, int arr_len);
 t_data	back(t_stack *stk);
@@ -63,20 +74,21 @@ void	pop_front(t_stack *stk);
 void	preprocess_stack(t_stack *a);
 int		print_error(void);
 void	push_dst(t_stack *src, t_stack *dst);
-void	push_swap(t_stack *a, t_stack *b);
+void	push_swap(t_stack *a, t_stack *b, t_lis *is_lis);
 void	reverse_rotate_repeat_x(t_stack *stk, int num_of_repeat);
 void	rotate_repeat_x(t_stack *stk, int num_of_repeat);
 void	rotate_x(t_stack *stk);
 void	sel_sort(t_stack *stk);
-void	selection_sort(int *data, size_t len);
+void	selection_sort(t_arr *arr);
 void	sort_a_half(t_stack *a, t_stack *b);
 void	sort_b_half(t_stack *a, t_stack *b);
 void	swap_x(t_stack *stk);
+void	push_a(t_stack *a, t_stack *b);
+
+
 void	ss(t_stack *a, t_stack *b);
 
-
 void	push_b(t_stack *a, t_stack *b, t_arr *arr, size_t range);
-void	push_a(t_stack *a, t_stack *b, t_arr *arr, size_t range);
 
 #include <stdio.h>
 void print_stack(t_stack *stk);

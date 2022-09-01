@@ -25,6 +25,7 @@ SRCS = \
 	get.c \
 	init.c \
 	is.c \
+	lis.c \
 	peek.c \
 	pop.c \
 	preprocess.c \
@@ -35,7 +36,6 @@ SRCS = \
 	push_swap.c \
 	reverse_rotate.c \
 	rotate.c \
-	sort.c	\
 	swap.c \
 	main.c	\
 

@@ -43,33 +43,16 @@ int main(int argc, char** argv)
 {
 	t_stack a;
 	t_stack b;
+	t_lis 	is_lis;
 
 	init(&a, &b, argc, &argv);
 	if (is_duplicate(&a))
 		return (print_error());
-	print_stack_a_b(&a, &b);
-/*
-	push_b(&a, &b, &arr, 16);
-	print_stack_a_b(&a, &b);
-	push_b(&a, &b, &arr, 8);
-	print_stack_a_b(&a, &b);
-	push_b(&a, &b, &arr, 4);
-	print_stack_a_b(&a, &b);
-	push_a(&a, &b, &arr, 16);
-	print_stack_a_b(&a, &b);
-*/
+	stack_to_is_lis(&a, &is_lis);
+	push_swap(&a, &b, &is_lis);
 
-/*
-	sort_a_half(&a, &b);
-	print_stack_a_b(&a, &b);
-	move_b_to_a(&a, &b, sorted_arr, arr_len);
-	sort_b_half(&a, &b);
-	print_stack_a_b(&a, &b);
-	while (!is_empty(&b))
-		push_dst(&b, &a);
-	print_stack_a_b(&a, &b);
-*/
-
-// free stack
+//	print_stack_a_b(&a, &b);
+//
+	// free stack
 	return (0);
 }

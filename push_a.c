@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+/*
 void	push_b(t_stack *a, t_stack *b, t_arr *arr, size_t range)
 {
 	size_t	i;
@@ -45,7 +46,7 @@ void	push_a(t_stack *a, t_stack *b, t_arr *arr, size_t range)
 	}
 }
 
-
+*/
 
 /*
 void	push_b_half(t_stack *a, t_stack *b, t_arr *arr)

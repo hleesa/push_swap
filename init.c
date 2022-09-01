@@ -35,22 +35,20 @@ void	init_stack_arg(t_stack *stk, int argc, char ***argv, char name)
 	t_bool	is_error;
 
 	init_stack(stk, name);
-	i = 1;
-	while(i < argc)
+	i = 0;
+	while(++i < argc)
 	{
 		args = ft_split((*argv)[i],' ');
 		if(args == NULL)
 			exit(print_error());
-		args_idx = 0;
-		while(args[args_idx])
+		args_idx = -1;
+		while(args[++args_idx])
 		{
 			is_error = 0;
 			add_back(stk, ft_atoi(args[args_idx], &is_error));
 			if (is_error)
 				exit(print_error());
-			++args_idx;
 		}
-		++i;
 	}
 	return ;
 }
