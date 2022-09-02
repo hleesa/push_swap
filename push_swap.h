@@ -50,6 +50,12 @@ typedef	struct s_lis
 	size_t	size;
 }	t_lis;
 
+typedef struct s_range
+{
+	t_data	begin;
+	t_data	end;
+}	t_range;
+
 t_bool	add_back(t_stack *stk, t_data data);
 t_bool	add_front(t_stack *stk, t_data data);
 t_node	*create_node(t_data data);
@@ -88,7 +94,11 @@ void	push_a(t_stack *a, t_stack *b);
 
 void	ss(t_stack *a, t_stack *b);
 
+void	reverse_rotate_x(t_stack *stk);
+t_bool	is_over_two_thirds(t_data num, t_data total);
 void	push_b(t_stack *a, t_stack *b, t_arr *arr, size_t range);
+void	push_b_half(t_stack *a, t_stack *b);
+
 
 #include <stdio.h>
 void print_stack(t_stack *stk);

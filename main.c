@@ -45,14 +45,13 @@ int main(int argc, char** argv)
 	t_stack b;
 	t_lis 	is_lis;
 
+	if(argc == 1)
+		return (0);
 	init(&a, &b, argc, &argv);
-	if (is_duplicate(&a))
+	if (is_duplicate(&a))	// need edit
 		return (print_error());
 	stack_to_is_lis(&a, &is_lis);
 	push_swap(&a, &b, &is_lis);
 
-//	print_stack_a_b(&a, &b);
-//
-	// free stack
 	return (0);
 }

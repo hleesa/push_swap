@@ -28,3 +28,23 @@ void	push_dst(t_stack *src, t_stack *dst)
 	ft_putchar_fd('\n', 1);
 	return;
 }
+
+void	push_b_half(t_stack *a, t_stack *b)
+{
+	size_t			i;
+	const size_t	i_end = a->size;
+	const t_data	mid_val = i_end	/ 2;
+
+	i = -1;
+	while(++i < i_end)
+	{
+		if(front(a) < mid_val)
+		{
+			push_dst(a, b);
+		}
+		else
+		{
+			rotate_x(a);
+		}
+	}
+}
