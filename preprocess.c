@@ -22,7 +22,9 @@ void	stack_to_arr(t_stack *stk, t_arr *arr)
 	arr->size = stk->size;
 	arr->data = ft_calloc(arr->size, sizeof(t_data));
 	if (arr->data == NULL)
+	{
 		return ;
+	}
 	i = -1;
 	cur = stk->head->next;
 	while(++i < arr->size)

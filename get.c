@@ -18,6 +18,42 @@ size_t max(size_t a, size_t b)
 		return (a);
 	return (b);
 }
+size_t min(size_t a, size_t b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+t_data	get_arr_max(t_arr *arr)
+{
+	t_data ret;
+	size_t i;
+
+	i = -1;
+	ret = INT_MIN;
+	while(++i < arr->size)
+	{
+		if (arr->data[i] > ret)
+			ret = arr->data[i];
+	}
+	return (ret);
+}
+
+t_data	get_arr_min(t_arr *arr)
+{
+	t_data ret;
+	size_t i;
+
+	i = -1;
+	ret = INT_MAX;
+	while(++i < arr->size)
+	{
+		if (arr->data[i] < ret)
+			ret = arr->data[i];
+	}
+	return (ret);
+}
 
 int	num_of_rotate(t_data top, t_stack *stk)
 {
@@ -34,19 +70,29 @@ int	num_of_rotate(t_data top, t_stack *stk)
 	return ret;
 }
 
-int	get_num_of_rotate(t_data top, t_stack *stk)
+int	get_num_of_rotate(t_arr *arr, t_data target)
 {
-	int	ret;
-	int	rotate_num;
-	int	reverse_rotate_num;
-	
-	rotate_num = num_of_rotate(top, stk);
-	reverse_rotate_num = stk->size - rotate_num;
-	if(rotate_num <= reverse_rotate_num)
-		ret = rotate_num;
-	else
-		ret = -reverse_rotate_num;
-//	printf("grn: %d\n", rotate_num);
-//	printf("grrn: %d\n", reverse_rotate_num);
-	return ret;
+	size_t	i;
+	t_data	prev;
+	t_data	next;
+	const t_data arr_min = get_arr_min(arr);
+	const t_data arr_max = get_arr_max(arr);
+
+	if(arr->size == 1)
+		return (1);
+	i = -1;
+	while(++i < arr->size)
+	{
+		prev = arr->data[(i + arr->size - 1)% arr->size];
+		next = arr->data[i];
+		if (prev == arr_max)
+			prev = INT_MIN;
+		if (next == arr_min)
+			next = INT_MAX;
+		if (prev < target && target < next)
+		{
+			return (i);
+		}
+	}
+	return (-1);
 }

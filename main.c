@@ -39,6 +39,7 @@ void print_stack_a_b(t_stack *a, t_stack *b)
 	print_stack(b);
 }
 
+
 int main(int argc, char** argv)
 {
 	t_stack a;
@@ -51,7 +52,9 @@ int main(int argc, char** argv)
 	if (is_duplicate(&a))	// need edit
 		return (print_error());
 	stack_to_is_lis(&a, &is_lis);
-	push_swap(&a, &b, &is_lis);
+//	print_stack_a_b(&a, &b);
+	push_swap(&a, &b);
+//	print_stack_a_b(&a, &b);
 
 	return (0);
 }

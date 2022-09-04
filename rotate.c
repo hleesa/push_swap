@@ -43,3 +43,17 @@ void	rotate_repeat_x(t_stack *stk, int num_of_repeat)
 	}
 	return;
 }
+
+void	rotate_rotate_repeat_x(t_stack *a, t_stack *b, int num_of_repeat)
+{
+	int	i;
+
+	i = 0;
+	while(i <num_of_repeat)
+	{
+		rotate_x(a);
+		rotate_x(b);
+		++i;
+	}
+	return;
+}
