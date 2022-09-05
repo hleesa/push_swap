@@ -44,6 +44,13 @@ void	rotate_repeat_x(t_stack *stk, int num_of_repeat)
 	return;
 }
 
+void	rotate_rotate(t_stack *a, t_stack *b)
+{
+	rotate(a);
+	rotate(b);
+	ft_putendl_fd("rr", 1);
+}
+
 void	rotate_rotate_repeat_x(t_stack *a, t_stack *b, int num_of_repeat)
 {
 	int	i;
@@ -51,8 +58,7 @@ void	rotate_rotate_repeat_x(t_stack *a, t_stack *b, int num_of_repeat)
 	i = 0;
 	while(i <num_of_repeat)
 	{
-		rotate_x(a);
-		rotate_x(b);
+		rotate_rotate(a,b);
 		++i;
 	}
 	return;

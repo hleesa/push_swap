@@ -44,6 +44,13 @@ void	reverse_rotate_repeat_x(t_stack *stk, int num_of_repeat)
 	return;
 }
 
+void	reverse_rotate_reverse_rotate(t_stack *a, t_stack *b)
+{
+	reverse_rotate(a);
+	reverse_rotate(b);
+	ft_putendl_fd("rrr", 1);
+}
+
 void	reverse_rotate_rotate_repeat_x(t_stack *a, t_stack *b, int num_of_repeat)
 {
 	int	i;
@@ -51,8 +58,7 @@ void	reverse_rotate_rotate_repeat_x(t_stack *a, t_stack *b, int num_of_repeat)
 	i = 0;
 	while(i < num_of_repeat)
 	{
-		reverse_rotate_x(a);
-		reverse_rotate_x(b);
+		reverse_rotate_reverse_rotate(a, b);
 		++i;
 	}
 	return;

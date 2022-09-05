@@ -12,20 +12,59 @@
 
 #include "push_swap.h"
 
+
+t_bool	is_rotate(t_stack *a, t_lis *is_lis)
+{
+	t_arr	arr;
+	int	i;
+	int	begin;
+	int	end;
+
+	stack_to_arr(a, &arr);
+	begin = -1;
+	end = -1;
+	i = -1;
+	while(++i < (int)arr.size)
+	{
+		if(is_lis->arr.data[arr.data[i]])
+			continue;
+		if(begin == -1)
+			begin = i;
+		else
+			end = i;
+	}
+	if(end == -1)
+		end = begin;
+	if(end < (int)a->size - begin + 1)
+		return (TRUE);
+	return (FALSE);
+}
+
 void	push_b_not_lis(t_stack *a, t_stack *b, t_lis *is_lis)
 {
 	size_t i;
+	const t_bool is_rot = is_rotate(a, is_lis);
 	const size_t end = a->size;
 
+	if(is_lis->size == a->size)
+		return ;
 	i = -1;
-	while (++i < end)
+	while (++i < end && !is_asc_stack(a))
 	{
 		if (is_lis->arr.data[front(a)] == 0)
 			push_dst(a, b);
 		else
-			rotate_x(a);
+		{
+			if(is_rot)
+				rotate_x(a);
+			else
+				reverse_rotate_x(a);
+		}
 	}
+	if(is_lis->arr.data[front(a)] == 0)
+		push_dst(a, b);
 }
+
 /*
 void	push_a(t_stack *a, t_stack *b)
 {
@@ -214,40 +253,42 @@ void get_min_rotate_table(t_stack *a, t_stack *b, int* min_table)
 		rotate_table[RRB] = brr.size - rotate_table[RB];
 		rotate_table[RR] = min(rotate_table[RA], rotate_table[RB]);
 		rotate_table[RRR] = min(rotate_table[RRA], rotate_table[RRB]);
+		print_table(rotate_table);
 		get_min_table(rotate_table, min_table);
 	}
 	return ;
 }
 
-void	tripartition_stack(t_stack *a, t_stack *b)
-{
-	
-
-}
-
 void	push_swap(t_stack *a, t_stack *b)
 {
+	t_lis 	is_lis;
 	int  min_table[TABLE_SIZE];
+
+	stack_to_is_lis(a, &is_lis);
+	push_b_not_lis(a, b, &is_lis);
+
 //	const size_t end = a->size;
 	printf("start\n");
 	print_stack_a_b(a,b);
 //	while(a->size < end)
 
-	printf("1\n");
 	get_min_rotate_table(a, b, min_table);
+	print_table(min_table);
 	rotate_stack(a,b,min_table);
 	push_dst(b, a);
 	print_stack_a_b(a,b);
-
+/*
 	printf("2\n");
 	get_min_rotate_table(a, b, min_table);
 	rotate_stack(a,b,min_table);
 	push_dst(b, a);
 	print_stack_a_b(a,b);
 
+ */
 //	printf("================\n");
 //	print_stack(a);
 //	print_stack(b);
 //	printf("================\n");
+
 }
 

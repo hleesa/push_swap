@@ -78,17 +78,19 @@ int	get_num_of_rotate(t_arr *arr, t_data target)
 	const t_data arr_min = get_arr_min(arr);
 	const t_data arr_max = get_arr_max(arr);
 
-	if(arr->size == 1)
-		return (1);
+	if(arr->size < 2)
+		return (0);
 	i = -1;
 	while(++i < arr->size)
 	{
 		prev = arr->data[(i + arr->size - 1)% arr->size];
 		next = arr->data[i];
+		printf("prev_i: %lu, prev: %d , next_i: %zu, next: %d\n",(i + arr->size - 1), prev,i, next );
 		if (prev == arr_max)
 			prev = INT_MIN;
 		if (next == arr_min)
 			next = INT_MAX;
+		printf("prev_i: %lu, prev: %d , next_i: %zu, next: %d\n",(i + arr->size - 1), prev,i, next );
 		if (prev < target && target < next)
 		{
 			return (i);

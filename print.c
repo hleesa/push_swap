@@ -17,3 +17,12 @@ int	print_error(void)
 	ft_putendl_fd("Error", 1);
 	return (-1);
 }
+
+
+void	print_table(int* table)
+{
+	printf("ra rra rb rrb   rr rrr sum\n");
+	for(int i=0; i<TABLE_SIZE; ++i)
+		printf("%d   ", table[i]);
+	printf("\n");
+}

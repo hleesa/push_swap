@@ -119,9 +119,13 @@ t_bool	is_over_two_thirds(t_data num, t_data total);
 void	push_b(t_stack *a, t_stack *b, t_arr *arr, size_t range);
 void	push_b_half(t_stack *a, t_stack *b);
 
+t_data	get_arr_min(t_arr *arr);
+t_bool	is_asc_stack(t_stack *stk);
+
 #include <stdio.h>
 
 void print_stack_a_b(t_stack *a, t_stack *b);
+void	print_table(int* table);
 
 
 #endif //PUSH_SWAP_H
