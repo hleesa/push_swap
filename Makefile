@@ -21,23 +21,22 @@ RM			:= rm -f
 
 SRCS = \
 	add.c \
-	create_node.c \
 	get.c \
 	init.c \
 	is.c \
 	lis.c \
+	main.c	\
 	peek.c \
 	pop.c \
-	preprocess.c \
 	print.c \
 	push.c \
-	push_a.c \
-	push_b.c \
 	push_swap.c \
 	reverse_rotate.c \
 	rotate.c \
+	sort.c \
+	stack.c \
 	swap.c \
-	main.c	\
+	table.c \
 
 OBJS = $(SRCS:c=o)
 

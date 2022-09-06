@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 13:50:37 by salee2            #+#    #+#             */
-/*   Updated: 2022/08/27 19:39:13 by salee2           ###   ########.fr       */
+/*   Updated: 2022/09/06 18:05:43 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	swap(t_stack *stk)
 	t_data	temp;
 
 	if (stk->size < 2)
-		return;
+		return ;
 	temp = front(stk);
 	stk->head->next->data = stk->head->next->next->data;
 	stk->head->next->next->data = temp;
-	return;
+	return ;
 }
 
 void	swap_x(t_stack *stk)
@@ -33,10 +33,10 @@ void	swap_x(t_stack *stk)
 	return ;
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	swap_swap(t_stack *a, t_stack *b)
 {
 	swap(a);
 	swap(b);
 	ft_putendl_fd("ss", 1);
-	return;
+	return ;
 }

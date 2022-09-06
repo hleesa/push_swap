@@ -12,7 +12,37 @@
 
 #include "push_swap.h"
 
-#include <stdio.h>
+int	main(int argc, char **argv)
+{
+	t_stack	a;
+	t_stack	b;
+
+	if (argc == 1)
+		return (0);
+	init(&a, &b, argc, &argv);
+	if (is_duplicate(&a))
+		return (print_error());
+	push_swap(&a, &b);
+	return (0);
+}
+/*
+
+void	print_table(int* table)
+{
+	printf("ra rra rb rrb   rr rrr sum\n");
+	for(int i=0; i<TABLE_SIZE; ++i)
+		printf("%d   ", table[i]);
+	printf("\n");
+}
+
+void print_arr(t_arr *arr)
+{
+	printf("size: %zu\n", arr->size);
+	for(size_t i=0; i< arr->size; ++i)
+		printf("%d ", arr->data[i]);
+	printf("\n");
+}
+
 
 void print_stack(t_stack *stk)
 {
@@ -39,18 +69,4 @@ void print_stack_a_b(t_stack *a, t_stack *b)
 	print_stack(b);
 }
 
-
-int main(int argc, char** argv)
-{
-	t_stack a;
-	t_stack b;
-
-	if(argc == 1)
-		return (0);
-	init(&a, &b, argc, &argv);
-	if (is_duplicate(&a))
-		return (print_error());
-	push_swap(&a, &b);
-
-	return (0);
-}
+ */

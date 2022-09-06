@@ -14,7 +14,7 @@
 
 void	pop_back(t_stack *stk)
 {
-	t_node *back;
+	t_node	*back;
 
 	back = stk->tail->prev;
 	stk->tail->prev = back->prev;
@@ -26,7 +26,7 @@ void	pop_back(t_stack *stk)
 
 void	pop_front(t_stack *stk)
 {
-	t_node *front;
+	t_node	*front;
 
 	front = stk->head->next;
 	stk->head->next = front->next;

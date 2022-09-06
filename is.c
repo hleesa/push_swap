@@ -12,15 +12,15 @@
 
 #include "push_swap.h"
 
-t_bool is_empty(t_stack *stk)
+t_bool	is_empty(t_stack *stk)
 {
-	return stk->size == 0;
+	return (stk->size == 0);
 }
 
-t_bool is_duplicate(t_stack *stk)
+t_bool	is_duplicate(t_stack *stk)
 {
-	t_arr arr;
-	size_t i;
+	t_arr	arr;
+	size_t	i;
 
 	if (stk->size < 2)
 		return (FALSE);
@@ -47,18 +47,45 @@ t_bool	is_asc_stack(t_stack *stk)
 	min = get_arr_min(&arr);
 	i = -1;
 	min_i = -1;
-	while(++i < arr.size)
+	while (++i < arr.size)
 	{
-		if(arr.data[i] == min)
+		if (arr.data[i] == min)
 			min_i = i;
 	}
 	i = -1;
-	while(++i + 1 < arr.size)
+	while (++i + 1 < arr.size)
 	{
-		if (arr.data[min_i] > arr.data[(min_i + 1)%arr.size])
+		if (arr.data[min_i] > arr.data[(min_i + 1) % arr.size])
 			return (FALSE);
 		min_i = (min_i + 1) % arr.size;
 	}
 	free(arr.data);
 	return (TRUE);
+}
+
+t_bool	is_rotate(t_stack *a, t_lis *is_lis)
+{
+	t_arr	arr;
+	int		i;
+	int		begin;
+	int		end;
+
+	stack_to_arr(a, &arr);
+	begin = -1;
+	end = -1;
+	i = -1;
+	while (++i < (int)arr.size)
+	{
+		if (is_lis->arr.data[arr.data[i]])
+			continue ;
+		if (begin == -1)
+			begin = i;
+		else
+			end = i;
+	}
+	if (end == -1)
+		end = begin;
+	if (end < (int)a->size - begin + 1)
+		return (TRUE);
+	return (FALSE);
 }

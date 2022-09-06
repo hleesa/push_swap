@@ -16,10 +16,12 @@ void	rotate(t_stack *stk)
 {
 	t_data	temp;
 
+	if (stk->size < 2)
+		return ;
 	temp = stk->head->next->data;
 	pop_front(stk);
 	add_back(stk, temp);
-	return;
+	return ;
 }
 
 void	rotate_x(t_stack *stk)
@@ -28,20 +30,20 @@ void	rotate_x(t_stack *stk)
 	ft_putchar_fd('r', 1);
 	ft_putchar_fd(stk->name, 1);
 	ft_putchar_fd('\n', 1);
-	return;
+	return ;
 }
 
-void	rotate_repeat_x(t_stack *stk, int num_of_repeat)
+void	rotate_repeat_x(t_stack *stk, int repeats)
 {
 	int	i;
 
 	i = 0;
-	while(i <num_of_repeat)
+	while (i < repeats)
 	{
 		rotate_x(stk);
 		++i;
 	}
-	return;
+	return ;
 }
 
 void	rotate_rotate(t_stack *a, t_stack *b)
@@ -49,17 +51,18 @@ void	rotate_rotate(t_stack *a, t_stack *b)
 	rotate(a);
 	rotate(b);
 	ft_putendl_fd("rr", 1);
+	return ;
 }
 
-void	rotate_rotate_repeat_x(t_stack *a, t_stack *b, int num_of_repeat)
+void	rotate_rotate_repeat_x(t_stack *a, t_stack *b, int repeats)
 {
 	int	i;
 
 	i = 0;
-	while(i <num_of_repeat)
+	while (i < repeats)
 	{
-		rotate_rotate(a,b);
+		rotate_rotate(a, b);
 		++i;
 	}
-	return;
+	return ;
 }

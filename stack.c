@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   preprocess.c                                       :+:      :+:    :+:   */
+/*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 17:56:35 by salee2            #+#    #+#             */
-/*   Updated: 2022/08/31 17:56:35 by salee2           ###   ########.fr       */
+/*   Updated: 2022/09/06 18:06:25 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,36 +27,10 @@ void	stack_to_arr(t_stack *stk, t_arr *arr)
 	}
 	i = -1;
 	cur = stk->head->next;
-	while(++i < arr->size)
+	while (++i < arr->size)
 	{
 		arr->data[i] = cur->data;
 		cur = cur->next;
-	}
-	return;
-}
-
-void	selection_sort(t_arr *arr)
-{
-	size_t	i;
-	size_t	j;
-	size_t	min_idx;
-	t_data 	temp;
-
-	i = 0;
-	while(i < arr->size)
-	{
-		min_idx = i;
-		j = i + 1;
-		while (j < arr->size)
-		{
-			if (arr->data[j] < arr->data[min_idx])
-				min_idx = j;
-			++j;
-		}
-		temp = arr->data[i];
-		arr->data[i] = arr->data[min_idx];
-		arr->data[min_idx] = temp;
-		++i;
 	}
 	return ;
 }
@@ -84,5 +58,16 @@ void	preprocess_stack(t_stack *a)
 		cur = cur->next;
 	}
 	free(arr.data);
+	return ;
+}
+
+void	rotate_stack(t_stack *a, t_stack *b, int *table)
+{
+	rotate_repeat_x(a, table[RA]);
+	reverse_rotate_repeat_x(a, table[RRA]);
+	rotate_repeat_x(b, table[RB]);
+	reverse_rotate_repeat_x(b, table[RRB]);
+	rotate_rotate_repeat_x(a, b, table[RR]);
+	reverse_rotate_rotate_repeat_x(a, b, table[RRR]);
 	return ;
 }
