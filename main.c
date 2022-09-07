@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:20:32 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/07 15:58:07 by salee2           ###   ########.fr       */
+/*   Updated: 2022/09/07 17:45:07 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int	main(int argc, char **argv)
 	push_swap(&a, &b);
 	free_stack(&a);
 	free_stack(&b);
+//	system("leaks push_swap");
 	return (0);
 }

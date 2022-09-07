@@ -15,6 +15,8 @@
 void	free_stack(t_stack *stk)
 {
 	while (!is_empty(stk))
-		pop_back(stk);
+		pop_front(stk);
+	free(stk->head);
+	free(stk->tail);
 	return ;
 }

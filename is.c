@@ -83,6 +83,7 @@ t_bool	is_rotate(t_stack *a, t_lis *is_lis)
 		else
 			end = i;
 	}
+	free(arr.data);
 	if (end == -1)
 		end = begin;
 	if (end < (ssize_t)a->size - begin + 1)

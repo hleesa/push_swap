@@ -12,16 +12,15 @@
 
 #include "push_swap.h"
 
-void	init_memo_from(t_stack *stk, t_arr *arr, t_arr *memo, t_arr *from)
+void	init_memo_from(t_arr *arr, t_arr *memo, t_arr *from)
 {
 	size_t	i;
 
-	stack_to_arr(stk, arr);
 	memo->size = arr->size;
 	memo->data = ft_calloc(memo->size, sizeof(t_data));
 	from->size = arr->size;
 	from->data = ft_calloc(from->size, sizeof(t_data));
-	if (arr->data == NULL || memo->data == NULL || from->data == NULL)
+	if (memo->data == NULL || from->data == NULL)
 		exit(ft_printf("Error\n"));
 	i = -1;
 	while (++i < from->size)
@@ -29,14 +28,14 @@ void	init_memo_from(t_stack *stk, t_arr *arr, t_arr *memo, t_arr *from)
 	return ;
 }
 
-void	get_lis(t_stack *stk, t_arr *memo, t_arr *from)
+void	get_lis_memo_from(t_stack *stk, t_arr *memo, t_arr *from)
 {
 	size_t	i;
 	size_t	j;
 	t_arr	arr;
 
 	stack_to_arr(stk, &arr);
-	init_memo_from(stk, &arr, memo, from);
+	init_memo_from(&arr, memo, from);
 	i = -1;
 	while (++i < arr.size)
 	{
@@ -89,7 +88,7 @@ void	stack_to_is_lis(t_stack *stk, t_lis *is_lis)
 	t_arr	from;
 
 	stack_to_arr(stk, &arr);
-	get_lis(stk, &memo, &from);
+	get_lis_memo_from(stk, &memo, &from);
 	is_lis->size = 0;
 	i = -1;
 	while (++i < memo.size)
@@ -102,5 +101,8 @@ void	stack_to_is_lis(t_stack *stk, t_lis *is_lis)
 	if (is_lis->arr.data == NULL)
 		exit(ft_printf("Error\n"));
 	get_is_lis(&arr, &memo, &from, &is_lis->arr);
+	free(arr.data);
+	free(memo.data);
+	free(from.data);
 	return ;
 }

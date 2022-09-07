@@ -48,7 +48,10 @@ void	init_stack_arg(t_stack *stk, int argc, char ***argv, char name)
 			add_back(stk, ft_atoi(args[args_idx], &is_error));
 			if (is_error)
 				exit(ft_printf("Error\n"));
+			free(args[args_idx]);
 		}
+		free(args[args_idx]);
+		free(args);
 	}
 	return ;
 }
