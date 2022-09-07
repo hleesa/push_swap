@@ -66,15 +66,15 @@ t_bool	is_asc_stack(t_stack *stk)
 t_bool	is_rotate(t_stack *a, t_lis *is_lis)
 {
 	t_arr	arr;
-	int		i;
-	int		begin;
-	int		end;
+	size_t	i;
+	ssize_t	begin;
+	ssize_t	end;
 
 	stack_to_arr(a, &arr);
 	begin = -1;
 	end = -1;
 	i = -1;
-	while (++i < (int)arr.size)
+	while (++i < arr.size)
 	{
 		if (is_lis->arr.data[arr.data[i]])
 			continue ;
@@ -85,7 +85,7 @@ t_bool	is_rotate(t_stack *a, t_lis *is_lis)
 	}
 	if (end == -1)
 		end = begin;
-	if (end < (int)a->size - begin + 1)
+	if (end < (ssize_t)a->size - begin + 1)
 		return (TRUE);
 	return (FALSE);
 }

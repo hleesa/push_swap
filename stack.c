@@ -22,9 +22,7 @@ void	stack_to_arr(t_stack *stk, t_arr *arr)
 	arr->size = stk->size;
 	arr->data = ft_calloc(arr->size, sizeof(t_data));
 	if (arr->data == NULL)
-	{
-		return ;
-	}
+		exit(ft_printf("Error\n"));
 	i = -1;
 	cur = stk->head->next;
 	while (++i < arr->size)
@@ -43,25 +41,22 @@ void	preprocess_stack(t_stack *a)
 	t_node	*cur;
 
 	stack_to_arr(a, &arr);
-	if (arr.data == NULL)
-		exit(print_error());
 	selection_sort(&arr);
-	i = 0;
+	i = -1;
 	cur = a->head->next;
-	while (i < arr.size)
+	while (++i < arr.size)
 	{
 		j = 0;
 		while (j < arr.size && cur->data != arr.data[j])
 			++j;
 		cur->data = j;
-		++i;
 		cur = cur->next;
 	}
 	free(arr.data);
 	return ;
 }
 
-void	rotate_stack(t_stack *a, t_stack *b, int *table)
+void	rotate_stack(t_stack *a, t_stack *b, t_data *table)
 {
 	rotate_repeat_x(a, table[RA]);
 	reverse_rotate_repeat_x(a, table[RRA]);

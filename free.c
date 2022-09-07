@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/29 15:03:17 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/06 18:19:38 by salee2           ###   ########.fr       */
+/*   Created: 2022/09/07 13:17:41 by salee2            #+#    #+#             */
+/*   Updated: 2022/09/07 15:06:31 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	print_error(void)
+void	free_stack(t_stack *stk)
 {
-	ft_putendl_fd("Error", 1);
-	return (-1);
+	while (!is_empty(stk))
+		pop_back(stk);
+	return ;
 }

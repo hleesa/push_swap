@@ -24,9 +24,7 @@ void	push(t_stack *src, t_stack *dst)
 void	push_dst(t_stack *src, t_stack *dst)
 {
 	push(src, dst);
-	ft_putchar_fd('p', 1);
-	ft_putchar_fd(dst->name, 1);
-	ft_putchar_fd('\n', 1);
+	ft_printf("p%c\n", dst->name);
 	return ;
 }
 

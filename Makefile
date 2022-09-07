@@ -11,16 +11,17 @@
 # **************************************************************************** #
 
 NAME		:= push_swap
-LIBFTDIR	:= ./libft
-LIBFTFILE	:= libft.a
+PRINTFDIR	:= ./ft_printf
+PRINTFFILE	:= libftprintf.a
 
 CC			:= cc
-CFLAGS		:= -Wall -Wextra -Werror -I$(LIBFTDIR)
+CFLAGS		:= -Wall -Wextra -Werror -I$(PRINTFDIR)
 AR			:= ar rcs
 RM			:= rm -f
 
 SRCS = \
 	add.c \
+	free.c \
 	get.c \
 	init.c \
 	is.c \
@@ -28,11 +29,11 @@ SRCS = \
 	main.c	\
 	peek.c \
 	pop.c \
-	print.c \
 	push.c \
 	push_swap.c \
 	reverse_rotate.c \
 	rotate.c \
+	set_table.c \
 	sort.c \
 	stack.c \
 	swap.c \
@@ -43,18 +44,18 @@ OBJS = $(SRCS:c=o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C $(LIBFTDIR)
-	$(CC) $(CFLAGS) -o $@ $^ $(LIBFTDIR)/$(LIBFTFILE)
+	make -C $(PRINTFDIR)
+	$(CC) $(CFLAGS) -o $@ $^ $(PRINTFDIR)/$(PRINTFFILE)
 
 %o: %c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	make -C $(LIBFTDIR) clean
-	$(RM) $(OBJS) $(LIBFTFILE)
+	make -C $(PRINTFDIR) clean
+	$(RM) $(OBJS) $(PRINTFFILE)
 
 fclean: clean
-	make -C $(LIBFTDIR) fclean
+	make -C $(PRINTFDIR) fclean
 	$(RM) $(NAME)
 
 re: fclean

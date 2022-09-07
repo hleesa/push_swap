@@ -22,7 +22,7 @@ void	init_memo_from(t_stack *stk, t_arr *arr, t_arr *memo, t_arr *from)
 	from->size = arr->size;
 	from->data = ft_calloc(from->size, sizeof(t_data));
 	if (arr->data == NULL || memo->data == NULL || from->data == NULL)
-		exit(print_error());
+		exit(ft_printf("Error\n"));
 	i = -1;
 	while (++i < from->size)
 		from->data[i] = -1;
@@ -100,7 +100,7 @@ void	stack_to_is_lis(t_stack *stk, t_lis *is_lis)
 	is_lis->arr.size = stk->size;
 	is_lis->arr.data = ft_calloc(is_lis->arr.size, sizeof(t_data));
 	if (is_lis->arr.data == NULL)
-		exit(print_error());
+		exit(ft_printf("Error\n"));
 	get_is_lis(&arr, &memo, &from, &is_lis->arr);
 	return ;
 }

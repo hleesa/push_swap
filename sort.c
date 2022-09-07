@@ -19,22 +19,45 @@ void	selection_sort(t_arr *arr)
 	size_t	min_idx;
 	t_data	temp;
 
-	i = 0;
-	while (i < arr->size)
+	i = -1;
+	while (++i < arr->size)
 	{
 		min_idx = i;
-		j = i + 1;
-		while (j < arr->size)
+		j = i;
+		while (++j < arr->size)
 		{
 			if (arr->data[j] < arr->data[min_idx])
 				min_idx = j;
-			++j;
 		}
 		temp = arr->data[i];
 		arr->data[i] = arr->data[min_idx];
 		arr->data[min_idx] = temp;
-		++i;
 	}
+	return ;
+}
+
+void	three_sort(t_stack *stk)
+{
+	t_arr	arr;
+
+	stack_to_arr(stk, &arr);
+	if (arr.data[0] == 0 && arr.data[1] > arr.data[2])
+	{
+		swap_x(stk);
+		rotate_x(stk);
+	}
+	if (arr.data[0] == 1 && arr.data[1] < arr.data[2])
+		swap_x(stk);
+	if (arr.data[0] == 1 && arr.data[1] > arr.data[2])
+		reverse_rotate_x(stk);
+	if (arr.data[0] == 2 && arr.data[1] < arr.data[2])
+		rotate_x(stk);
+	if (arr.data[0] == 2 && arr.data[1] > arr.data[2])
+	{
+		rotate_x(stk);
+		swap_x(stk);
+	}
+	free(arr.data);
 	return ;
 }
 
@@ -57,10 +80,10 @@ void	last_sort(t_stack *stk)
 		}
 	}
 	rra = arr.size - ra;
-	i = -1;
 	if (rra < ra)
 		reverse_rotate_repeat_x(stk, rra);
 	else
 		rotate_repeat_x(stk, ra);
+	free(arr.data);
 	return ;
 }

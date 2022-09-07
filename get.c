@@ -12,13 +12,6 @@
 
 #include "push_swap.h"
 
-size_t	max(size_t a, size_t b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
-
 size_t	min(size_t a, size_t b)
 {
 	if (a < b)
@@ -56,7 +49,7 @@ t_data	get_arr_min(t_arr *arr)
 	return (ret);
 }
 
-int	get_num_of_rotate(t_arr *arr, t_data target)
+t_data	get_num_of_rotate(t_arr *arr, t_data target)
 {
 	size_t			i;
 	t_data			front;

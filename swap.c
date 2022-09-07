@@ -27,16 +27,6 @@ void	swap(t_stack *stk)
 void	swap_x(t_stack *stk)
 {
 	swap(stk);
-	ft_putchar_fd('s', 1);
-	ft_putchar_fd(stk->name, 1);
-	ft_putchar_fd('\n', 1);
-	return ;
-}
-
-void	swap_swap(t_stack *a, t_stack *b)
-{
-	swap(a);
-	swap(b);
-	ft_putendl_fd("ss", 1);
+	ft_printf("s%c\n", stk->name);
 	return ;
 }
