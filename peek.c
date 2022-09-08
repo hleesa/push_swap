@@ -14,10 +14,10 @@
 
 t_data	back(t_stack *stk)
 {
-	return (stk->tail->prev->data);
+	return (stk->tail.prev->data);
 }
 
 t_data	front(t_stack *stk)
 {
-	return (stk->head->next->data);
+	return (stk->head.next->data);
 }

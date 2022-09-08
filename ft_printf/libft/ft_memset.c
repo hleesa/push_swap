@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/07 13:17:41 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/07 15:06:31 by salee2           ###   ########.fr       */
+/*   Created: 2022/07/04 16:15:52 by salee2            #+#    #+#             */
+/*   Updated: 2022/07/04 19:45:46 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_stack *stk)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	while (!is_empty(stk))
-		pop_front(stk);
-	return ;
+	size_t	i;
+
+	i = 0;
+	while (i < len)
+	{
+		((unsigned char *)b)[i] = c;
+		++i;
+	}
+	return (b);
 }

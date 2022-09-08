@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/07 13:17:41 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/07 15:06:31 by salee2           ###   ########.fr       */
+/*   Created: 2022/07/07 16:05:47 by salee2            #+#    #+#             */
+/*   Updated: 2022/07/07 20:00:56 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	free_stack(t_stack *stk)
+int	ft_toupper(int c)
 {
-	while (!is_empty(stk))
-		pop_front(stk);
-	return ;
+	if ('a' <= c && c <= 'z')
+		c += 'A' - 'a';
+	return (c);
 }

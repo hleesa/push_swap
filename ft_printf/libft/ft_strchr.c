@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/07 13:17:41 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/07 15:06:31 by salee2           ###   ########.fr       */
+/*   Created: 2022/07/07 19:50:11 by salee2            #+#    #+#             */
+/*   Updated: 2022/07/12 16:40:15 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_stack *stk)
+char	*ft_strchr(const char *s, int c)
 {
-	while (!is_empty(stk))
-		pop_front(stk);
-	return ;
+	size_t		i;
+	const char	ch = c;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == ch)
+			return ((char *)(s + i));
+		++i;
+	}
+	if (ch == 0)
+		return ((char *)(s + i));
+	return (0);
 }

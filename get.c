@@ -49,6 +49,20 @@ t_data	get_arr_min(t_arr *arr)
 	return (ret);
 }
 
+size_t	get_arr_min_idx(t_arr *arr)
+{
+	size_t			i;
+	const t_data	min = get_arr_min(arr);
+
+	i = -1;
+	while (++i < arr->size)
+	{
+		if (arr->data[i] == min)
+			return (i);
+	}
+	return (-1);
+}
+
 t_data	get_num_of_rotate(t_arr *arr, t_data target)
 {
 	size_t			i;

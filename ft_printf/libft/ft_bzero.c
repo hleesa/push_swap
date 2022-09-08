@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/07 13:17:41 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/07 15:06:31 by salee2           ###   ########.fr       */
+/*   Created: 2022/07/04 16:29:34 by salee2            #+#    #+#             */
+/*   Updated: 2022/07/04 19:58:14 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_stack *stk)
+void	ft_bzero(void *s, size_t n)
 {
-	while (!is_empty(stk))
-		pop_front(stk);
+	ft_memset(s, 0, n);
 	return ;
 }

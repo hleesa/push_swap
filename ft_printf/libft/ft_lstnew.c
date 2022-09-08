@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/07 13:17:41 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/07 15:06:31 by salee2           ###   ########.fr       */
+/*   Created: 2022/07/12 20:04:46 by salee2            #+#    #+#             */
+/*   Updated: 2022/07/15 05:03:24 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_stack *stk)
+t_list	*ft_lstnew(void *content)
 {
-	while (!is_empty(stk))
-		pop_front(stk);
-	return ;
+	t_list	*ret;
+
+	ret = (t_list *)malloc(sizeof(t_list));
+	if (ret == 0)
+		return (0);
+	ret->content = content;
+	ret->next = 0;
+	return (ret);
 }

@@ -18,7 +18,7 @@ void	reverse_rotate(t_stack *stk)
 
 	if (stk->size < 2)
 		return ;
-	temp = stk->tail->prev->data;
+	temp = stk->tail.prev->data;
 	pop_back(stk);
 	add_front(stk, temp);
 	return ;

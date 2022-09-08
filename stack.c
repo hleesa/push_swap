@@ -24,7 +24,7 @@ void	stack_to_arr(t_stack *stk, t_arr *arr)
 	if (arr->data == NULL)
 		exit(ft_printf("Error\n"));
 	i = -1;
-	cur = stk->head->next;
+	cur = stk->head.next;
 	while (++i < arr->size)
 	{
 		arr->data[i] = cur->data;
@@ -43,7 +43,7 @@ void	preprocess_stack(t_stack *a)
 	stack_to_arr(a, &arr);
 	selection_sort(&arr);
 	i = -1;
-	cur = a->head->next;
+	cur = a->head.next;
 	while (++i < arr.size)
 	{
 		j = 0;

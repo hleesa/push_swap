@@ -18,7 +18,7 @@ void	rotate(t_stack *stk)
 
 	if (stk->size < 2)
 		return ;
-	temp = stk->head->next->data;
+	temp = stk->head.next->data;
 	pop_front(stk);
 	add_back(stk, temp);
 	return ;

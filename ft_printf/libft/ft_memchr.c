@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/22 16:20:32 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/07 17:45:07 by salee2           ###   ########.fr       */
+/*   Created: 2022/07/07 21:08:23 by salee2            #+#    #+#             */
+/*   Updated: 2022/07/12 17:35:04 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_stack	a;
-	t_stack	b;
+	size_t				i;
+	const unsigned char	ch = c;
+	const unsigned char	*sp = (const unsigned char *)s;
 
-	if (argc == 1)
-		return (0);
-	init(&a, &b, argc, &argv);
-	if (is_duplicate(&a))
-		return (ft_printf("Error\n"));
-	push_swap(&a, &b);
-	free_stack(&a);
-	free_stack(&b);
+	i = 0;
+	while (i < n)
+	{
+		if (sp[i] == ch)
+			return ((void *)(sp + i));
+		++i;
+	}
 	return (0);
 }

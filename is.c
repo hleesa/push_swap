@@ -19,48 +19,50 @@ t_bool	is_empty(t_stack *stk)
 
 t_bool	is_duplicate(t_stack *stk)
 {
+	t_bool	ret;
 	t_arr	arr;
 	size_t	i;
 
+	ret = FALSE;
 	if (stk->size < 2)
-		return (FALSE);
+		return (ret);
 	stack_to_arr(stk, &arr);
 	selection_sort(&arr);
 	i = -1;
 	while (++i + 1 < arr.size)
 	{
 		if (arr.data[i] == arr.data[i + 1])
-			return (TRUE);
+		{
+			ret = TRUE;
+			break ;
+		}
 	}
 	free(arr.data);
-	return (FALSE);
+	return (ret);
 }
 
 t_bool	is_asc_stack(t_stack *stk)
 {
-	t_arr	arr;
-	t_data	min;
+	t_bool	ret;
 	size_t	i;
 	size_t	min_i;
+	t_arr	arr;
 
 	stack_to_arr(stk, &arr);
-	min = get_arr_min(&arr);
+	min_i = get_arr_min_idx(&arr);
 	i = -1;
-	min_i = -1;
-	while (++i < arr.size)
-	{
-		if (arr.data[i] == min)
-			min_i = i;
-	}
-	i = -1;
+	ret = TRUE;
 	while (++i + 1 < arr.size)
 	{
 		if (arr.data[min_i] > arr.data[(min_i + 1) % arr.size])
-			return (FALSE);
+		{
+			ret = FALSE;
+			break ;
+		}
 		min_i = (min_i + 1) % arr.size;
 	}
 	free(arr.data);
-	return (TRUE);
+	return (ret);
 }
 
 t_bool	is_rotate(t_stack *a, t_lis *is_lis)

@@ -19,8 +19,8 @@ void	swap(t_stack *stk)
 	if (stk->size < 2)
 		return ;
 	temp = front(stk);
-	stk->head->next->data = stk->head->next->next->data;
-	stk->head->next->next->data = temp;
+	stk->head.next->data = stk->head.next->next->data;
+	stk->head.next->next->data = temp;
 	return ;
 }
 

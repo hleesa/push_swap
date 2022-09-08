@@ -17,10 +17,10 @@ void	add_back(t_stack *stk, t_data data)
 	t_node	*new_node;
 
 	new_node = create_node(data);
-	new_node->next = stk->tail;
-	new_node->prev = stk->tail->prev;
-	stk->tail->prev->next = new_node;
-	stk->tail->prev = new_node;
+	new_node->next = &stk->tail;
+	new_node->prev = stk->tail.prev;
+	stk->tail.prev->next = new_node;
+	stk->tail.prev = new_node;
 	++stk->size;
 	return ;
 }
@@ -30,10 +30,10 @@ void	add_front(t_stack *stk, t_data data)
 	t_node	*new_node;
 
 	new_node = create_node(data);
-	new_node->next = stk->head->next;
-	new_node->prev = stk->head;
-	stk->head->next->prev = new_node;
-	stk->head->next = new_node;
+	new_node->next = stk->head.next;
+	new_node->prev = &stk->head;
+	stk->head.next->prev = new_node;
+	stk->head.next = new_node;
 	++stk->size;
 	return ;
 }

@@ -33,8 +33,8 @@ typedef struct s_stack
 {
 	char	name;
 	size_t	size;
-	t_node	*head;
-	t_node	*tail;
+	t_node	head;
+	t_node	tail;
 }	t_stack;
 
 typedef struct s_arr
@@ -81,6 +81,7 @@ void	free_stack(t_stack *stk);
 size_t	min(size_t a, size_t b);
 t_data	get_arr_max(t_arr *arr);
 t_data	get_arr_min(t_arr *arr);
+size_t	get_arr_min_idx(t_arr *arr);
 t_data	get_num_of_rotate(t_arr *arr, t_data target);
 void	init(t_stack *a, t_stack *b, int argc, char ***argv);
 void	init_set_type_table(void (*set_type_table[4])(t_data*, t_data*));

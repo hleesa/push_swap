@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/22 16:20:32 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/07 17:45:07 by salee2           ###   ########.fr       */
+/*   Created: 2022/07/08 15:24:26 by salee2            #+#    #+#             */
+/*   Updated: 2022/07/08 15:34:19 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strdup(const char *s1)
 {
-	t_stack	a;
-	t_stack	b;
+	size_t	i;
+	size_t	size;
+	char	*ret;
 
-	if (argc == 1)
+	size = ft_strlen(s1) + 1;
+	ret = (char *) malloc(sizeof(char) * (size));
+	if (ret == 0)
 		return (0);
-	init(&a, &b, argc, &argv);
-	if (is_duplicate(&a))
-		return (ft_printf("Error\n"));
-	push_swap(&a, &b);
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
+	i = 0;
+	while (i < size)
+	{
+		ret[i] = s1[i];
+		++i;
+	}
+	return (ret);
 }
