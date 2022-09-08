@@ -115,7 +115,7 @@ void	set_table_ra_rrb(t_data *src, t_data *dst);
 void	set_table_rra_rrb(t_data *src, t_data *dst);
 
 void	selection_sort(t_arr *arr);
-void	three_sort(t_stack *stk);
+void	five_sort(t_stack *a, t_stack *b);
 void	last_sort(t_stack *stk);
 void	stack_to_arr(t_stack *stk, t_arr *arr);
 void	preprocess_stack(t_stack *a);

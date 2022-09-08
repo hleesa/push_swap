@@ -41,23 +41,52 @@ void	three_sort(t_stack *stk)
 	t_arr	arr;
 
 	stack_to_arr(stk, &arr);
-	if (arr.data[0] == 0 && arr.data[1] > arr.data[2])
+	if (arr.data[0] < arr.data[2] && arr.data[1] > arr.data[2])
 	{
 		swap_x(stk);
 		rotate_x(stk);
 	}
-	if (arr.data[0] == 1 && arr.data[1] < arr.data[2])
+	if (arr.data[0] > arr.data[1] && arr.data[0] < arr.data[2] && \
+	arr.data[1] < arr.data[2])
 		swap_x(stk);
-	if (arr.data[0] == 1 && arr.data[1] > arr.data[2])
+	if (arr.data[0] < arr.data[1] && arr.data[0] > arr.data[2] && \
+	arr.data[1] > arr.data[2])
 		reverse_rotate_x(stk);
-	if (arr.data[0] == 2 && arr.data[1] < arr.data[2])
+	if (arr.data[0] > arr.data[2] && arr.data[1] < arr.data[2])
 		rotate_x(stk);
-	if (arr.data[0] == 2 && arr.data[1] > arr.data[2])
+	if (arr.data[0] > arr.data[1] && arr.data[1] > arr.data[2])
 	{
 		rotate_x(stk);
 		swap_x(stk);
 	}
 	free(arr.data);
+	return ;
+}
+
+void	five_sort(t_stack *a, t_stack *b)
+{
+	const t_data	min = (t_data)a->size - 3;
+
+	if (is_asc_stack(a))
+	{
+		last_sort(a);
+		return ;
+	}
+	while (a->size > 3)
+	{
+		if (front(a) < min)
+			push_dst(a, b);
+		else
+			rotate_x(a);
+	}
+	three_sort(a);
+	if (b->size > 1)
+	{
+		if (front(b) < back(b))
+			swap_x(b);
+	}
+	while (!is_empty(b))
+		push_dst(b, a);
 	return ;
 }
 

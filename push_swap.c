@@ -18,9 +18,9 @@ void	push_swap(t_stack *a, t_stack *b)
 	t_data	min_table[TABLE_SIZE];
 	void	(*set_type_table[4])(t_data*, t_data*);
 
-	if (a->size == 3)
+	if (a->size < 6)
 	{
-		three_sort(a);
+		five_sort(a, b);
 		return ;
 	}
 	init_set_type_table(set_type_table);
@@ -33,6 +33,5 @@ void	push_swap(t_stack *a, t_stack *b)
 		push_dst(b, a);
 	}
 	last_sort(a);
-	free(is_lis.arr.data);
 	return ;
 }
