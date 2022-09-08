@@ -13,6 +13,7 @@
 NAME		= libftprintf.a
 LIBFTDIR	= ./libft
 LIBFTFILE	= libft.a
+GNLDIR		= ./get_next_line
 
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
@@ -24,6 +25,10 @@ SRCS = \
 	ft_csdiu.c \
 	ft_pxp.c \
 	ft_utoa.c \
+	$(GNLDIR)/get_next_line.c \
+	$(GNLDIR)/get_next_line_utils.c \
+	$(GNLDIR)/get_next_line_bonus.c \
+	$(GNLDIR)/get_next_line_utils_bonus.c \
 
 OBJS_M = $(SRCS:.c=.o)
 

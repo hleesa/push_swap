@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include "libft/libft.h"
+# include "get_next_line/get_next_line.h"
 
 # define HEX_LEN 19
 

@@ -28,7 +28,7 @@ ssize_t	get_newline_offset(const void *src, int c, size_t n)
 	return (-1);
 }
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_line_move(void *dst, const void *src, size_t len)
 {
 	size_t				i;
 	unsigned char		*dp;

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	get_rotate_table(t_data *table, t_arr *arr, t_arr *brr, size_t i)
+void	get_rotate_table(t_integer *table, t_arr *arr, t_arr *brr, size_t i)
 {
 	table[RA] = get_num_of_rotate(arr, brr->data[i]);
 	table[RRA] = arr->size - table[RA];
@@ -23,9 +23,9 @@ void	get_rotate_table(t_data *table, t_arr *arr, t_arr *brr, size_t i)
 	return ;
 }
 
-t_data	get_min_type(t_data *table, t_data *min_table)
+t_integer	get_min_type(t_integer *table, t_integer *min_table)
 {
-	t_data	min_type;
+	t_integer	min_type;
 
 	min_type = -1;
 	if (table[RA] + table[RB] - table[RR] < min_table[SUM])
@@ -51,10 +51,10 @@ t_data	get_min_type(t_data *table, t_data *min_table)
 	return (min_type);
 }
 
-void	get_min_table(t_data *table, t_data *min_table, \
-void (*set_type_table[4])(t_data*, t_data*))
+void	get_min_table(t_integer *table, t_integer *min_table, \
+void (*set_type_table[4])(t_integer*, t_integer*))
 {
-	const t_data	min_type = get_min_type(table, min_table);
+	const t_integer	min_type = get_min_type(table, min_table);
 
 	if (min_type == -1)
 		return ;
@@ -63,14 +63,14 @@ void (*set_type_table[4])(t_data*, t_data*))
 	return ;
 }
 
-void	get_min_rotate_table(t_stack *a, t_stack *b, t_data *min_table, \
-void (*set_type_table[4])(t_data*, t_data*))
+void	get_min_rotate_table(t_stack *a, t_stack *b, t_integer *min_table, \
+void (*set_type_table[4])(t_integer*, t_integer*))
 {
 	size_t	i;
 	size_t	i_end;
 	t_arr	arr;
 	t_arr	brr;
-	t_data	rotate_table[TABLE_SIZE];
+	t_integer	rotate_table[TABLE_SIZE];
 
 	stack_to_arr(a, &arr);
 	stack_to_arr(b, &brr);

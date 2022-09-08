@@ -15,8 +15,8 @@
 void	push_swap(t_stack *a, t_stack *b)
 {
 	t_lis	is_lis;
-	t_data	min_table[TABLE_SIZE];
-	void	(*set_type_table[4])(t_data*, t_data*);
+	t_integer	min_table[TABLE_SIZE];
+	void	(*set_type_table[4])(t_integer*, t_integer*);
 
 	if (a->size < 6)
 	{

@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   peek.c                                             :+:      :+:    :+:   */
+/*   bonus_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/26 18:13:37 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/06 18:22:33 by salee2           ###   ########.fr       */
+/*   Created: 2022/09/08 20:53:15 by salee2            #+#    #+#             */
+/*   Updated: 2022/09/08 20:53:16 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-t_integer	back(t_stack *stk)
+void	push_a(t_stack *a, t_stack *b)
 {
-	return (stk->tail.prev->data);
+	push(b, a);
+	return ;
 }
 
-t_integer	front(t_stack *stk)
+void	push_b(t_stack *a, t_stack *b)
 {
-	return (stk->head.next->data);
+	push(a, b);
+	return ;
 }

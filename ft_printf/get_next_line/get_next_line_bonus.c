@@ -23,15 +23,15 @@ void	*memjoin(void *data, ssize_t d_size, void *buff, ssize_t b_size)
 			free(data);
 		return (NULL);
 	}
-	ft_memmove(ret, data, d_size);
-	ft_memmove((unsigned char *)ret + d_size, buff, b_size);
+	ft_line_move(ret, data, d_size);
+	ft_line_move((unsigned char *)ret + d_size, buff, b_size);
 	((unsigned char *)ret)[d_size + b_size] = '\0';
 	if (data != NULL)
 		free(data);
 	return (ret);
 }
 
-ssize_t	buff_init(char *buff, t_data *repository)
+ssize_t	buff_init(char *buff, t_line *repository)
 {
 	ssize_t	data_size;
 
@@ -39,15 +39,15 @@ ssize_t	buff_init(char *buff, t_data *repository)
 		data_size = 0;
 	else
 	{
-		ft_memmove((void *) buff, repository->data, repository->size);
+		ft_line_move((void *) buff, repository->data, repository->size);
 		free(repository->data);
 		data_size = repository->size;
-		*repository = (t_data){NULL, 0};
+		*repository = (t_line){NULL, 0};
 	}
 	return (data_size);
 }
 
-void	update_repository(t_data *repository, char *buff, \
+void	update_repository(t_line *repository, char *buff, \
 		ssize_t newline_offset, ssize_t data_size)
 {
 	if (newline_offset + 1 < data_size)
@@ -64,7 +64,7 @@ void	update_repository(t_data *repository, char *buff, \
 	return ;
 }
 
-void	get_one_line(t_data *ret, int fd, char *buff, t_data *repository)
+void	get_one_line(t_line *ret, int fd, char *buff, t_line *repository)
 {
 	ssize_t	data_size;
 	ssize_t	newline_offset;
@@ -95,16 +95,16 @@ void	get_one_line(t_data *ret, int fd, char *buff, t_data *repository)
 
 char	*get_next_line(int fd)
 {
-	t_data			ret;
+	t_line			ret;
 	char			*buff;
-	static t_data	repository[OPEN_MAX];
+	static t_line	repository[OPEN_MAX];
 
 	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE < 0)
 		return (0);
 	buff = (char *) malloc(sizeof(char) * BUFFER_SIZE);
 	if (buff == NULL)
 		return (NULL);
-	ret = (t_data){NULL, 0};
+	ret = (t_line){NULL, 0};
 	get_one_line(&ret, fd, buff, repository + fd);
 	if (ret.size == 0)
 	{

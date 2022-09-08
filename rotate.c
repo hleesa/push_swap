@@ -14,7 +14,7 @@
 
 void	rotate(t_stack *stk)
 {
-	t_data	temp;
+	t_integer	temp;
 
 	if (stk->size < 2)
 		return ;

@@ -17,7 +17,7 @@ void	selection_sort(t_arr *arr)
 	size_t	i;
 	size_t	j;
 	size_t	min_idx;
-	t_data	temp;
+	t_integer	temp;
 
 	i = -1;
 	while (++i < arr->size)
@@ -65,7 +65,7 @@ void	three_sort(t_stack *stk)
 
 void	five_sort(t_stack *a, t_stack *b)
 {
-	const t_data	min = (t_data)a->size - 3;
+	const t_integer	min = (t_integer)a->size - 3;
 
 	if (is_asc_stack(a))
 	{
