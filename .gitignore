@@ -1,6 +1,6 @@
 
-CMakeLists.txt
-cmake-build-debug
+.gitignore
 .DS_Store
 .idea
-
+CMakeLists.txt
+cmake-build-debug
