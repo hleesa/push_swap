@@ -24,7 +24,7 @@ typedef int	t_integer;
 
 typedef struct s_node
 {
-	t_integer			data;
+	t_integer		data;
 	struct s_node	*prev;
 	struct s_node	*next;
 }	t_node;

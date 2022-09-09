@@ -10,21 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "bonus_checker.h"
 
 void	swap_a(t_stack *a, t_stack *b)
 {
-	if (is_empty(b))
-		return ;
-	swap(a);
+	if (b != NULL)
+		swap(a);
 	return ;
 }
 
 void	swap_b(t_stack *a, t_stack *b)
 {
-	if (is_empty(a))
-		return ;
-	swap(b);
+	if (a != NULL)
+		swap(b);
 	return ;
 }
 

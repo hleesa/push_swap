@@ -62,12 +62,3 @@ void	init(t_stack *a, t_stack *b, int argc, char ***argv)
 	preprocess_stack(a);
 	return ;
 }
-
-void	init_set_type_table(void (*set_type_table[4])(t_integer*, t_integer*))
-{
-	set_type_table[0] = set_table_ra_rb;
-	set_type_table[1] = set_table_rra_rb;
-	set_type_table[2] = set_table_ra_rrb;
-	set_type_table[3] = set_table_rra_rrb;
-	return ;
-}

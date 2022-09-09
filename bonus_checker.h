@@ -13,23 +13,55 @@
 #ifndef CHECKER_H
 # define CHECKER_H
 
-# include "push_swap.h"
+# include <unistd.h>
+# include <stdlib.h>
+# include "ft_printf/ft_printf.h"
 # define STDIN 0
 # define INSTR_SIZE 11
 
+typedef int	t_bool;
+typedef int	t_integer;
+
+typedef struct s_node
+{
+	t_integer		data;
+	struct s_node	*prev;
+	struct s_node	*next;
+}	t_node;
+
+typedef struct s_stack
+{
+	char	name;
+	size_t	size;
+	t_node	head;
+	t_node	tail;
+}	t_stack;
+
+typedef struct s_arr
+{
+	t_integer	*data;
+	size_t	size;
+}	t_arr;
+
+enum e_bool
+{
+	FALSE,
+	TRUE
+};
+
 enum e_instructions
 {
-	sa,
-	sb,
-	ss,
-	pa,
-	pb,
-	ra,
-	rb,
-	rr,
-	rra,
-	rrb,
-	rrr
+	SA,
+	SB,
+	SS,
+	PA,
+	PB,
+	RA,
+	RB,
+	RR,
+	RRA,
+	RRB,
+	RRR
 };
 
 void	swap(t_stack *stk);
@@ -47,5 +79,20 @@ void	reverse_rotate_a(t_stack *a, t_stack *b);
 void	reverse_rotate_b(t_stack *a, t_stack *b);
 void	reverse_rotate_reverse_rotate_bonus(t_stack *a, t_stack *b);
 void	checker(t_stack *a, t_stack *b);
+
+t_bool	is_asc_stack(t_stack *stk);
+t_integer	front(t_stack *stk);
+void	init(t_stack *a, t_stack *b, int argc, char ***argv);
+t_bool	is_duplicate(t_stack *stk);
+void	free_stack(t_stack *stk);
+t_bool	is_empty(t_stack *stk);
+void	add_back(t_stack *stk, t_integer data);
+void	add_front(t_stack *stk, t_integer data);
+void	pop_back(t_stack *stk);
+void	stack_to_arr(t_stack *stk, t_arr *arr);
+void	init_stack(t_stack *stk, char name);
+void	init_stack_arg(t_stack *stk, int argc, char ***argv);
+void	preprocess_stack(t_stack *a);
+void	selection_sort(t_arr *arr);
 
 #endif //CHECKER_H

@@ -10,15 +10,15 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= push_swap
-PRINTFDIR	:= ./ft_printf
-PRINTFFILE	:= libftprintf.a
-BONUS		:= cchecker
+NAME		= push_swap
+PRINTFDIR	= ./ft_printf
+PRINTFFILE	= libftprintf.a
+BONUS		= checker
 
-CC			:= cc
-CFLAGS		:= -Wall -Wextra -Werror -I$(PRINTFDIR)
-AR			:= ar rcs
-RM			:= rm -f
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror -I$(PRINTFDIR)
+AR			= ar rcs
+RM			= rm -f
 
 SRCS_COMMON = \
 	add.c \
@@ -29,19 +29,18 @@ SRCS_COMMON = \
 	lis.c \
 	peek.c \
 	pop.c \
+    stack.c \
+	push.c \
+    sort.c \
+    reverse_rotate.c \
+    rotate.c \
+    swap.c \
 
 SRCS_MANDA = \
 	main.c \
-	push.c \
-	push_swap.c \
-    reverse_rotate.c \
-    rotate.c \
     set_table.c \
-    sort.c \
-    stack.c \
-    swap.c \
     table.c \
-    $(SRCS_COMMON) \
+	push_swap.c \
 
 SRCS_BONUS = \
 	bonus_main.c \
@@ -49,11 +48,10 @@ SRCS_BONUS = \
 	bonus_reverse_rotate.c \
 	bonus_rotate.c \
 	bonus_swap.c \
-	checker.c \
-	$(SRCS_COMMON) \
+	bonus_checker.c \
 
-OBJS_MANDA = $(SRCS_MANDA:c=o)
-OBJS_BONUS = $(SRCS_BONUS:c=o)
+OBJS_MANDA = $(SRCS_COMMON:c=o) $(SRCS_MANDA:c=o)
+OBJS_BONUS = $(SRCS_COMMON:c=o) $(SRCS_BONUS:c=o)
 
 all: $(NAME)
 

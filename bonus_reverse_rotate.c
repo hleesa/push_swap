@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "bonus_checker.h"
 
 void	reverse_rotate_a(t_stack *a, t_stack *b)
 {
 	t_integer	temp;
 
-	if (a->size < 2 || is_empty(b))
+	if (a->size < 2 || b == NULL)
 		return ;
 	temp = a->tail.prev->data;
 	pop_back(a);
@@ -28,7 +28,7 @@ void	reverse_rotate_b(t_stack *a, t_stack *b)
 {
 	t_integer	temp;
 
-	if (b->size < 2 || is_empty(a))
+	if (b->size < 2 || a == NULL)
 		return ;
 	temp = b->tail.prev->data;
 	pop_back(b);
@@ -39,7 +39,7 @@ void	reverse_rotate_b(t_stack *a, t_stack *b)
 void	reverse_rotate_reverse_rotate_bonus(t_stack *a, t_stack *b)
 {
 	reverse_rotate_a(a, b);
-	reverse_rotate_b(b, a);
+	reverse_rotate_b(a, b);
 	return ;
 }
 

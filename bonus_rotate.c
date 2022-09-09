@@ -10,21 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "bonus_checker.h"
 
 void	rotate_a(t_stack *a, t_stack *b)
 {
-	if (is_empty(b))
-		return ;
-	rotate(a);
+	if (b != NULL)
+		rotate(a);
 	return ;
 }
 
 void	rotate_b(t_stack *a, t_stack *b)
 {
-	if (is_empty(a))
-		return ;
-	rotate(b);
+	if (a != NULL)
+		rotate(b);
 	return ;
 }
 
