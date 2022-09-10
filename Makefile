@@ -44,12 +44,12 @@ SRCS_MANDA = \
 	push_swap.c \
 
 SRCS_BONUS = \
-	bonus_main.c \
-	bonus_push.c \
-	bonus_reverse_rotate.c \
-	bonus_rotate.c \
-	bonus_swap.c \
-	bonus_checker.c \
+	main_bonus.c \
+	push_bonus.c \
+	reverse_rotate_bonus.c \
+	rotate_bonus.c \
+	swap_bonus.c \
+	checker_bonus.c \
 
 OBJS_MANDA = $(SRCS_COMMON:c=o) $(SRCS_MANDA:c=o)
 OBJS_BONUS = $(SRCS_COMMON:c=o) $(SRCS_BONUS:c=o)
