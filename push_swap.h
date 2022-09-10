@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:20:37 by salee2            #+#    #+#             */
-/*   Updated: 2022/08/22 16:20:40 by salee2           ###   ########.fr       */
+/*   Updated: 2022/09/10 14:25:15 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 # define STDERR 2
 # define TABLE_SIZE 7
-
 
 typedef int	t_bool;
 typedef int	t_int;
