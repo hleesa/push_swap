@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   bonus_checker.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:21:12 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/08 11:21:12 by salee2           ###   ########.fr       */
+/*   Updated: 2022/09/10 13:56:18 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef BONUS_CHECKER_H
+# define BONUS_CHECKER_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -20,11 +20,11 @@
 # define INSTR_SIZE 11
 
 typedef int	t_bool;
-typedef int	t_integer;
+typedef int	t_int;
 
 typedef struct s_node
 {
-	t_integer		data;
+	t_int			data;
 	struct s_node	*prev;
 	struct s_node	*next;
 }	t_node;
@@ -39,7 +39,7 @@ typedef struct s_stack
 
 typedef struct s_arr
 {
-	t_integer	*data;
+	t_int	*data;
 	size_t	size;
 }	t_arr;
 
@@ -81,18 +81,19 @@ void	reverse_rotate_reverse_rotate_bonus(t_stack *a, t_stack *b);
 void	checker(t_stack *a, t_stack *b);
 
 t_bool	is_asc_stack(t_stack *stk);
-t_integer	front(t_stack *stk);
+t_int	front(t_stack *stk);
 void	init(t_stack *a, t_stack *b, int argc, char ***argv);
 t_bool	is_duplicate(t_stack *stk);
 void	free_stack(t_stack *stk);
 t_bool	is_empty(t_stack *stk);
-void	add_back(t_stack *stk, t_integer data);
-void	add_front(t_stack *stk, t_integer data);
+void	add_back(t_stack *stk, t_int data);
+void	add_front(t_stack *stk, t_int data);
 void	pop_back(t_stack *stk);
+int		print_error(void);
 void	stack_to_arr(t_stack *stk, t_arr *arr);
 void	init_stack(t_stack *stk, char name);
 void	init_stack_arg(t_stack *stk, int argc, char ***argv);
 void	preprocess_stack(t_stack *a);
 void	selection_sort(t_arr *arr);
 
-#endif //CHECKER_H
+#endif //BONUS_CHECKER_H

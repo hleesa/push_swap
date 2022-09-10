@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus.c                                            :+:      :+:    :+:   */
+/*   bonus_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:18:06 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/08 11:18:07 by salee2           ###   ########.fr       */
+/*   Updated: 2022/09/10 13:56:22 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 		return (0);
 	init(&a, &b, argc, &argv);
 	if (is_duplicate(&a))
-		return (ft_printf("Error\n"));
+		return (print_error());
 	checker(&a, &b);
 	free_stack(&a);
 	free_stack(&b);

@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void	set_table(t_integer *table, t_integer val)
+void	set_table(t_int *table, t_int val)
 {
-	t_integer	i;
+	t_int	i;
 
 	i = -1;
 	while (++i < TABLE_SIZE)
@@ -22,7 +22,7 @@ void	set_table(t_integer *table, t_integer val)
 	return ;
 }
 
-void	set_table_ra_rb(t_integer *src, t_integer *dst)
+void	set_table_ra_rb(t_int *src, t_int *dst)
 {
 	dst[RA] = src[RA] - src[RR];
 	dst[RB] = src[RB] - src[RR];
@@ -31,7 +31,7 @@ void	set_table_ra_rb(t_integer *src, t_integer *dst)
 	return ;
 }
 
-void	set_table_rra_rb(t_integer *src, t_integer *dst)
+void	set_table_rra_rb(t_int *src, t_int *dst)
 {
 	dst[RRA] = src[RRA];
 	dst[RB] = src[RB];
@@ -39,7 +39,7 @@ void	set_table_rra_rb(t_integer *src, t_integer *dst)
 	return ;
 }
 
-void	set_table_ra_rrb(t_integer *src, t_integer *dst)
+void	set_table_ra_rrb(t_int *src, t_int *dst)
 {
 	dst[RA] = src[RA];
 	dst[RRB] = src[RRB];
@@ -47,7 +47,7 @@ void	set_table_ra_rrb(t_integer *src, t_integer *dst)
 	return ;
 }
 
-void	set_table_rra_rrb(t_integer *src, t_integer *dst)
+void	set_table_rra_rrb(t_int *src, t_int *dst)
 {
 	dst[RRA] = src[RRA] - src[RRR];
 	dst[RRB] = src[RRB] - src[RRR];

@@ -32,5 +32,3 @@ void	swap_swap(t_stack *a, t_stack *b)
 	swap(b);
 	return ;
 }
-
-

@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-t_integer	back(t_stack *stk)
+t_int	back(t_stack *stk)
 {
 	return (stk->tail.prev->data);
 }
 
-t_integer	front(t_stack *stk)
+t_int	front(t_stack *stk)
 {
 	return (stk->head.next->data);
 }

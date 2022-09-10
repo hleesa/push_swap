@@ -37,16 +37,16 @@ void	init_stack_arg(t_stack *stk, int argc, char ***argv)
 	{
 		args = ft_split((*argv)[i], ' ');
 		if (args == NULL || *args == NULL)
-			exit(ft_printf("Error\n"));
+			exit(print_error());
 		args_i = -1;
 		while (args[++args_i])
 		{
 			is_error = 0;
 			if (args[args_i][0] == '\0')
-				exit(ft_printf("Error\n"));
+				exit(print_error());
 			add_back(stk, ft_atoi(args[args_i], &is_error));
 			if (is_error)
-				exit(ft_printf("Error\n"));
+				exit(print_error());
 			free(args[args_i]);
 		}
 		free(args[args_i]);

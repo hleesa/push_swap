@@ -19,9 +19,9 @@ size_t	min(size_t a, size_t b)
 	return (b);
 }
 
-t_integer	get_arr_max(t_arr *arr)
+t_int	get_arr_max(t_arr *arr)
 {
-	t_integer	ret;
+	t_int	ret;
 	size_t	i;
 
 	i = -1;
@@ -34,9 +34,9 @@ t_integer	get_arr_max(t_arr *arr)
 	return (ret);
 }
 
-t_integer	get_arr_min(t_arr *arr)
+t_int	get_arr_min(t_arr *arr)
 {
-	t_integer	ret;
+	t_int	ret;
 	size_t	i;
 
 	i = -1;
@@ -51,8 +51,8 @@ t_integer	get_arr_min(t_arr *arr)
 
 size_t	get_arr_min_idx(t_arr *arr)
 {
-	size_t			i;
-	const t_integer	min = get_arr_min(arr);
+	size_t		i;
+	const t_int	min = get_arr_min(arr);
 
 	i = -1;
 	while (++i < arr->size)
@@ -63,13 +63,13 @@ size_t	get_arr_min_idx(t_arr *arr)
 	return (-1);
 }
 
-t_integer	get_num_of_rotate(t_arr *arr, t_integer target)
+t_int	get_num_of_rotate(t_arr *arr, t_int target)
 {
-	size_t			i;
-	t_integer			front;
-	t_integer			back;
-	const t_integer	arr_min = get_arr_min(arr);
-	const t_integer	arr_max = get_arr_max(arr);
+	size_t		i;
+	t_int		front;
+	t_int		back;
+	const t_int	arr_min = get_arr_min(arr);
+	const t_int	arr_max = get_arr_max(arr);
 
 	if (arr->size < 2)
 		return (0);

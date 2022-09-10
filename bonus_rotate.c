@@ -32,5 +32,3 @@ void	rotate_rotate_bonus(t_stack *a, t_stack *b)
 	rotate_b(a, b);
 	return ;
 }
-
-

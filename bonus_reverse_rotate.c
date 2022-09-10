@@ -14,7 +14,7 @@
 
 void	reverse_rotate_a(t_stack *a, t_stack *b)
 {
-	t_integer	temp;
+	t_int	temp;
 
 	if (a->size < 2 || b == NULL)
 		return ;
@@ -26,7 +26,7 @@ void	reverse_rotate_a(t_stack *a, t_stack *b)
 
 void	reverse_rotate_b(t_stack *a, t_stack *b)
 {
-	t_integer	temp;
+	t_int	temp;
 
 	if (b->size < 2 || a == NULL)
 		return ;
@@ -42,4 +42,3 @@ void	reverse_rotate_reverse_rotate_bonus(t_stack *a, t_stack *b)
 	reverse_rotate_b(a, b);
 	return ;
 }
-

@@ -14,7 +14,7 @@
 
 void	reverse_rotate(t_stack *stk)
 {
-	t_integer	temp;
+	t_int	temp;
 
 	if (stk->size < 2)
 		return ;

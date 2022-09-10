@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 		return (0);
 	init(&a, &b, argc, &argv);
 	if (is_duplicate(&a))
-		return (ft_printf("Error\n"));
+		return (print_error());
 	push_swap(&a, &b);
 	free_stack(&a);
 	free_stack(&b);

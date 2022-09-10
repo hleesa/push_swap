@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   bonus_checker.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:19:44 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/08 11:19:45 by salee2           ###   ########.fr       */
+/*   Updated: 2022/09/10 13:56:12 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bonus_checker.h"
 
-void	init_to_instr(void (*to_instr[INSTR_SIZE])(t_stack* ,t_stack*))
+void	init_to_instr(void (*to_instr[INSTR_SIZE])(t_stack*, t_stack*))
 {
 	to_instr[SA] = swap_a;
 	to_instr[SB] = swap_b;
@@ -28,33 +28,42 @@ void	init_to_instr(void (*to_instr[INSTR_SIZE])(t_stack* ,t_stack*))
 	return ;
 }
 
-void	checker(t_stack *a, t_stack *b)
+void	get_instruction(t_stack *a, t_stack *b, const char *instr[INSTR_SIZE], \
+void (*to_instr[INSTR_SIZE])(t_stack*, t_stack*))
 {
-	char *data;
-	const char* instr[INSTR_SIZE] = {"sa\n", "sb\n", "ss\n", "pa\n", "pb\n", "ra\n", "rb\n", "rr\n", "rra\n", "rrb\n", "rrr\n"};
-	void (*to_instr[INSTR_SIZE])(t_stack* ,t_stack* );
-	size_t i;
-	t_bool is_found;
+	char	*input;
+	size_t	i;
+	t_bool	is_instr;
 
-	init_to_instr(to_instr);
-	while ((data = get_next_line(STDIN)) != NULL)
+	while (TRUE)
 	{
 		i = -1;
-		is_found = FALSE;
+		input = get_next_line(STDIN);
+		if (input == NULL)
+			return ;
+		is_instr = FALSE;
 		while (++i < INSTR_SIZE)
 		{
-			if(ft_strcmp(data, instr[i]) == 0)
+			if (ft_strcmp(input, instr[i]) == 0)
 			{
 				to_instr[i](a, b);
-				is_found = TRUE;
+				is_instr = TRUE;
 				break ;
 			}
 		}
-		if (!is_found)
-		{
-			exit(ft_printf("Error\n"));
-		}
+		if (!is_instr)
+			exit(print_error());
 	}
+}
+
+void	checker(t_stack *a, t_stack *b)
+{
+	const char	*instr[INSTR_SIZE] = {"sa", "sb", "ss", "pa", "pb", \
+	"ra", "rb", "rr", "rra", "rrb", "rrr"};
+	void		(*to_instr[INSTR_SIZE])(t_stack*, t_stack*);
+
+	init_to_instr(to_instr);
+	get_instruction(a, b, instr, to_instr);
 	if (is_asc_stack(a) && front(a) == 0)
 		ft_printf("OK\n");
 	else

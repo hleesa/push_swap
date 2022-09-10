@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	add_back(t_stack *stk, t_integer data)
+void	add_back(t_stack *stk, t_int data)
 {
 	t_node	*new_node;
 
@@ -25,7 +25,7 @@ void	add_back(t_stack *stk, t_integer data)
 	return ;
 }
 
-void	add_front(t_stack *stk, t_integer data)
+void	add_front(t_stack *stk, t_int data)
 {
 	t_node	*new_node;
 
@@ -38,13 +38,13 @@ void	add_front(t_stack *stk, t_integer data)
 	return ;
 }
 
-t_node	*create_node(t_integer data)
+t_node	*create_node(t_int data)
 {
 	t_node	*ret;
 
 	ret = malloc(sizeof(t_node));
 	if (ret == NULL)
-		exit(ft_printf("Error\n"));
+		exit(print_error());
 	ret->data = data;
 	return (ret);
 }

@@ -29,6 +29,7 @@ SRCS_COMMON = \
 	lis.c \
 	peek.c \
 	pop.c \
+	print.c \
     stack.c \
 	push.c \
     sort.c \
@@ -54,12 +55,13 @@ OBJS_MANDA = $(SRCS_COMMON:c=o) $(SRCS_MANDA:c=o)
 OBJS_BONUS = $(SRCS_COMMON:c=o) $(SRCS_BONUS:c=o)
 
 all: $(NAME)
+bonus: $(BONUS)
 
 $(NAME): $(OBJS_MANDA)
 	make -C $(PRINTFDIR)
 	$(CC) $(CFLAGS) -o $@ $^ $(PRINTFDIR)/$(PRINTFFILE)
 
-bonus: $(OBJS_BONUS)
+$(BONUS): $(OBJS_BONUS)
 	make -C $(PRINTFDIR)
 	$(CC) $(CFLAGS) -o $(BONUS) $^ $(PRINTFDIR)/$(PRINTFFILE)
 

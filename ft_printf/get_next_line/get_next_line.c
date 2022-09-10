@@ -77,7 +77,7 @@ void	get_one_line(t_line *ret, int fd, char *buff, t_line *repository)
 		if (newline_offset == -1)
 			read_size = data_size;
 		else
-			read_size = newline_offset + 1;
+			read_size = newline_offset;
 		ret->data = memjoin(ret->data, ret->size, buff, read_size);
 		if (ret->data == NULL)
 			return ;
