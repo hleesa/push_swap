@@ -63,7 +63,7 @@ $(NAME): $(OBJS_MANDA)
 
 $(BONUS): $(OBJS_BONUS)
 	make -C $(PRINTFDIR)
-	$(CC) $(CFLAGS) -o $(BONUS) $^ $(PRINTFDIR)/$(PRINTFFILE)
+	$(CC) $(CFLAGS) -o $@ $^ $(PRINTFDIR)/$(PRINTFFILE)
 
 %o: %c
 	$(CC) $(CFLAGS) -c -o $@ $<
