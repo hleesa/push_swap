@@ -49,7 +49,6 @@ void	init_stack_arg(t_stack *stk, int argc, char ***argv)
 				exit(print_error());
 			free(args[args_i]);
 		}
-		free(args[args_i]);
 		free(args);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 12:27:09 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/06 18:17:30 by salee2           ###   ########.fr       */
+/*   Updated: 2022/09/10 16:49:48 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ void	push_swap(t_stack *a, t_stack *b)
 		push_dst(b, a);
 	}
 	last_sort(a);
+	free(is_lis.arr.data);
 	return ;
 }
