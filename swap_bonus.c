@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_push.c                                       :+:      :+:    :+:   */
+/*   bonus_swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 20:53:15 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/08 20:53:16 by salee2           ###   ########.fr       */
+/*   Created: 2022/09/08 20:53:09 by salee2            #+#    #+#             */
+/*   Updated: 2022/09/08 20:53:10 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus_checker.h"
+#include "checker_bonus.h"
 
-void	push_a(t_stack *a, t_stack *b)
+void	swap_a(t_stack *a, t_stack *b)
 {
-	push(b, a);
+	if (b != NULL)
+		swap(a);
 	return ;
 }
 
-void	push_b(t_stack *a, t_stack *b)
+void	swap_b(t_stack *a, t_stack *b)
 {
-	push(a, b);
+	if (a != NULL)
+		swap(b);
+	return ;
+}
+
+void	swap_swap(t_stack *a, t_stack *b)
+{
+	swap(a);
+	swap(b);
 	return ;
 }

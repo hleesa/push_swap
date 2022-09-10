@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "ft_printf/ft_printf.h"
-
 # define STDERR 2
 # define TABLE_SIZE 7
 

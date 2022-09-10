@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_main.c                                       :+:      :+:    :+:   */
+/*   rotate_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 11:18:06 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/10 13:56:22 by salee2           ###   ########.fr       */
+/*   Created: 2022/09/08 20:53:23 by salee2            #+#    #+#             */
+/*   Updated: 2022/09/10 19:09:28 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus_checker.h"
+#include "checker_bonus.h"
 
-int	main(int argc, char **argv)
+void	rotate_a(t_stack *a, t_stack *b)
 {
-	t_stack	a;
-	t_stack	b;
+	if (b != NULL)
+		rotate(a);
+	return ;
+}
 
-	if (argc == 1)
-		return (0);
-	init(&a, &b, argc, &argv);
-	if (is_duplicate(&a))
-		return (print_error());
-	checker(&a, &b);
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
+void	rotate_b(t_stack *a, t_stack *b)
+{
+	if (a != NULL)
+		rotate(b);
+	return ;
+}
+
+void	rotate_rotate_bonus(t_stack *a, t_stack *b)
+{
+	rotate_a(a, b);
+	rotate_b(a, b);
+	return ;
 }

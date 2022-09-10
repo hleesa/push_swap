@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_checker.h                                    :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:21:12 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/10 13:56:18 by salee2           ###   ########.fr       */
+/*   Updated: 2022/09/10 19:08:42 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BONUS_CHECKER_H
-# define BONUS_CHECKER_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -96,4 +96,4 @@ void	init_stack_arg(t_stack *stk, int argc, char ***argv);
 void	preprocess_stack(t_stack *a);
 void	selection_sort(t_arr *arr);
 
-#endif //BONUS_CHECKER_H
+#endif //CHECKER_BONUS_H

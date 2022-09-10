@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_checker.c                                    :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:19:44 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/10 13:56:12 by salee2           ###   ########.fr       */
+/*   Updated: 2022/09/10 19:08:27 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus_checker.h"
+#include "checker_bonus.h"
 
 void	init_to_instr(void (*to_instr[INSTR_SIZE])(t_stack*, t_stack*))
 {

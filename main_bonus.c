@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_swap.c                                       :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 20:53:09 by salee2            #+#    #+#             */
-/*   Updated: 2022/09/08 20:53:10 by salee2           ###   ########.fr       */
+/*   Created: 2022/09/08 11:18:06 by salee2            #+#    #+#             */
+/*   Updated: 2022/09/10 19:08:49 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus_checker.h"
+#include "checker_bonus.h"
 
-void	swap_a(t_stack *a, t_stack *b)
+int	main(int argc, char **argv)
 {
-	if (b != NULL)
-		swap(a);
-	return ;
-}
+	t_stack	a;
+	t_stack	b;
 
-void	swap_b(t_stack *a, t_stack *b)
-{
-	if (a != NULL)
-		swap(b);
-	return ;
-}
-
-void	swap_swap(t_stack *a, t_stack *b)
-{
-	swap(a);
-	swap(b);
-	return ;
+	if (argc == 1)
+		return (0);
+	init(&a, &b, argc, &argv);
+	if (is_duplicate(&a))
+		return (print_error());
+	checker(&a, &b);
+	free_stack(&a);
+	free_stack(&b);
+	return (0);
 }
