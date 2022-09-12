@@ -65,7 +65,7 @@ void	three_sort(t_stack *stk)
 
 void	five_sort(t_stack *a, t_stack *b)
 {
-	const t_int	min = (t_int)a->size - 3;
+	const t_int	a_min = (t_int)a->size - 3;
 
 	if (is_asc_stack(a))
 	{
@@ -74,7 +74,7 @@ void	five_sort(t_stack *a, t_stack *b)
 	}
 	while (a->size > 3)
 	{
-		if (front(a) < min)
+		if (front(a) < a_min)
 			push_dst(a, b);
 		else
 			rotate_x(a);

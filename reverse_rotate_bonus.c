@@ -14,25 +14,19 @@
 
 void	reverse_rotate_a(t_stack *a, t_stack *b)
 {
-	t_int	temp;
-
 	if (a->size < 2 || b == NULL)
 		return ;
-	temp = a->tail.prev->data;
+	add_front(a, back(a));
 	pop_back(a);
-	add_front(a, temp);
 	return ;
 }
 
 void	reverse_rotate_b(t_stack *a, t_stack *b)
 {
-	t_int	temp;
-
 	if (b->size < 2 || a == NULL)
 		return ;
-	temp = b->tail.prev->data;
+	add_front(b, front(b));
 	pop_back(b);
-	add_front(b, temp);
 	return ;
 }
 

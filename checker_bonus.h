@@ -79,8 +79,8 @@ void	reverse_rotate_a(t_stack *a, t_stack *b);
 void	reverse_rotate_b(t_stack *a, t_stack *b);
 void	reverse_rotate_reverse_rotate_bonus(t_stack *a, t_stack *b);
 void	checker(t_stack *a, t_stack *b);
-
 t_bool	is_asc_stack(t_stack *stk);
+t_int	back(t_stack *stk);
 t_int	front(t_stack *stk);
 void	init(t_stack *a, t_stack *b, int argc, char ***argv);
 t_bool	is_duplicate(t_stack *stk);

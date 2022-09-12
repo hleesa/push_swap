@@ -89,7 +89,6 @@ t_bool	is_empty(t_stack *stk);
 t_bool	is_duplicate(t_stack *stk);
 t_bool	is_asc_stack(t_stack *stk);
 t_bool	is_rotate(t_stack *a, t_lis *is_lis);
-
 void	stack_to_is_lis(t_stack *stk, t_lis *is_lis);
 t_int	back(t_stack *stk);
 t_int	front(t_stack *stk);
@@ -99,7 +98,6 @@ int		print_error(void);
 void	push_dst(t_stack *src, t_stack *dst);
 void	push_b_not_lis(t_stack *a, t_stack *b, t_lis *is_lis);
 void	push_swap(t_stack *a, t_stack *b);
-
 void	reverse_rotate_x(t_stack *stk);
 void	reverse_rotate_repeat_x(t_stack *stk, size_t repeats);
 void	reverse_rotate_reverse_rotate(t_stack *a, t_stack *b);
@@ -108,13 +106,11 @@ void	rotate_x(t_stack *stk);
 void	rotate_repeat_x(t_stack *stk, size_t repeats);
 void	rotate_rotate(t_stack *a, t_stack *b);
 void	rotate_rotate_repeat_x(t_stack *a, t_stack *b, size_t repeats);
-
 void	set_table(t_int *table, t_int val);
 void	set_table_ra_rb(t_int *src, t_int *dst);
 void	set_table_rra_rb(t_int *src, t_int *dst);
 void	set_table_ra_rrb(t_int *src, t_int *dst);
 void	set_table_rra_rrb(t_int *src, t_int *dst);
-
 void	selection_sort(t_arr *arr);
 void	five_sort(t_stack *a, t_stack *b);
 void	last_sort(t_stack *stk);
@@ -122,7 +118,6 @@ void	stack_to_arr(t_stack *stk, t_arr *arr);
 void	preprocess_stack(t_stack *a);
 void	rotate_stack(t_stack *a, t_stack *b, t_int *table);
 void	swap_x(t_stack *stk);
-
 void	get_min_rotate_table(t_stack *a, t_stack *b, t_int *min_table, \
 void (*set_type_table[4])(t_int*, t_int*));
 
