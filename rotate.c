@@ -14,13 +14,10 @@
 
 void	rotate(t_stack *stk)
 {
-	t_int	temp;
-
 	if (stk->size < 2)
 		return ;
-	temp = stk->head.next->data;
+	add_back(stk, front(stk));
 	pop_front(stk);
-	add_back(stk, temp);
 	return ;
 }
 

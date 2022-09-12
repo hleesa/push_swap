@@ -51,6 +51,7 @@ void (*to_instr[INSTR_SIZE])(t_stack*, t_stack*))
 				break ;
 			}
 		}
+		free(input);
 		if (!is_instr)
 			exit(print_error());
 	}
