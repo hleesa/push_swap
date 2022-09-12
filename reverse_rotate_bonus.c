@@ -25,7 +25,7 @@ void	reverse_rotate_b(t_stack *a, t_stack *b)
 {
 	if (b->size < 2 || a == NULL)
 		return ;
-	add_front(b, front(b));
+	add_front(b, back(b));
 	pop_back(b);
 	return ;
 }
