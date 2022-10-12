@@ -26,6 +26,7 @@ SRCS_COMMON = \
 	get.c \
 	init.c \
 	is.c \
+	is_lis.c \
 	lis.c \
 	peek.c \
 	pop.c \

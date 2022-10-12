@@ -28,7 +28,8 @@ void	init_memo_from(t_arr *arr, t_arr *memo, t_arr *from)
 	return ;
 }
 
-void	get_lis_memo_from(t_stack *stk, t_arr *memo, t_arr *from)
+void	get_lis_memo_from_offset(t_stack *stk, t_arr *memo, t_arr *from, \
+size_t offset)
 {
 	size_t	i;
 	size_t	j;
@@ -43,10 +44,12 @@ void	get_lis_memo_from(t_stack *stk, t_arr *memo, t_arr *from)
 		j = -1;
 		while (++j < i)
 		{
-			if (arr.data[j] < arr.data[i] && memo->data[j] + 1 > memo->data[i])
+			if (arr.data[(j + offset) % arr.size] < arr.data[(i + offset) \
+			% arr.size] && memo->data[j] + 1 > memo->data[i])
 			{
 				memo->data[i] = memo->data[j] + 1;
-				from->data[arr.data[i]] = arr.data[j];
+				from->data[arr.data[(i + offset) % arr.size]] = \
+				arr.data[(j + offset) % arr.size];
 			}
 		}
 	}
@@ -54,55 +57,52 @@ void	get_lis_memo_from(t_stack *stk, t_arr *memo, t_arr *from)
 	return ;
 }
 
-void	get_is_lis(t_arr *arr, t_arr *memo, t_arr *from, t_arr *is_lis)
+size_t	get_lis_len(t_arr *memo)
 {
 	size_t	i;
-	t_int	max_len;
-	t_int	end_val;
+	t_int	len;
 
-	max_len = 0;
-	end_val = 0;
-	i = 0;
+	len = 0;
+	i = -1;
 	while (++i < memo->size)
 	{
-		if (memo->data[i] > max_len)
+		if (memo->data[i] > len)
+			len = memo->data[i];
+	}
+	return (len);
+}
+
+void	update_lis(t_arr *memo, t_arr *from, t_arr *c_memo, t_arr *c_from)
+{
+	size_t			i;
+	const size_t	lis_len = get_lis_len(memo);
+	const size_t	c_lis_len = get_lis_len(c_memo);
+
+	if (c_lis_len > lis_len)
+	{
+		i = -1;
+		while (++i < memo->size)
 		{
-			max_len = memo->data[i];
-			end_val = arr->data[i];
+			memo->data[i] = c_memo->data[i];
+			from->data[i] = c_from->data[i];
 		}
 	}
-	while (from->data[end_val] != -1)
-	{
-		is_lis->data[end_val] = 1;
-		end_val = from->data[end_val];
-	}
-	is_lis->data[end_val] = 1;
 	return ;
 }
 
-void	stack_to_is_lis(t_stack *stk, t_lis *is_lis)
+void	get_lis_memo_from(t_stack *stk, t_arr *memo, t_arr *from)
 {
-	size_t	i;
 	t_arr	arr;
-	t_arr	memo;
-	t_arr	from;
+	t_arr	c_memo;
+	t_arr	c_from;
+	size_t	offset;
 
 	stack_to_arr(stk, &arr);
-	get_lis_memo_from(stk, &memo, &from);
-	is_lis->size = 0;
-	i = -1;
-	while (++i < memo.size)
+	init_memo_from(&arr, memo, from);
+	offset = -1;
+	while (++offset < stk->size)
 	{
-		if (memo.data[i] > (t_int)is_lis->size)
-			is_lis->size = memo.data[i];
+		get_lis_memo_from_offset(stk, &c_memo, &c_from, offset);
+		update_lis(memo, from, &c_memo, &c_from);
 	}
-	is_lis->arr.size = stk->size;
-	is_lis->arr.data = ft_calloc(is_lis->arr.size, sizeof(t_int));
-	if (is_lis->arr.data == NULL)
-		exit(print_error());
-	get_is_lis(&arr, &memo, &from, &is_lis->arr);
-	free(arr.data);
-	free(memo.data);
-	free(from.data);
-	return ;
 }
