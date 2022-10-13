@@ -40,16 +40,14 @@ size_t offset)
 	i = -1;
 	while (++i < arr.size)
 	{
-		memo->data[i] = 1;
+		memo->data[(i + offset) % arr.size] = 1;
 		j = -1;
 		while (++j < i)
 		{
-			if (arr.data[(j + offset) % arr.size] < arr.data[(i + offset) \
-			% arr.size] && memo->data[j] + 1 > memo->data[i])
+			if (arr.data[(j + offset) % arr.size] < arr.data[(i + offset) % arr.size] && memo->data[(j + offset) % arr.size] + 1 > memo->data[(i + offset) % arr.size])
 			{
-				memo->data[i] = memo->data[j] + 1;
-				from->data[arr.data[(i + offset) % arr.size]] = \
-				arr.data[(j + offset) % arr.size];
+				memo->data[(i + offset) % arr.size] = memo->data[(j + offset) % arr.size] + 1;
+				from->data[(i + offset) % arr.size] = (j + offset) % arr.size;
 			}
 		}
 	}

@@ -91,6 +91,7 @@ t_bool	is_asc_stack(t_stack *stk);
 t_bool	is_rotate(t_stack *a, t_lis *is_lis);
 void	stack_to_is_lis(t_stack *stk, t_lis *is_lis);
 void	get_lis_memo_from(t_stack *stk, t_arr *memo, t_arr *from);
+size_t	get_lis_len(t_arr *memo);
 t_int	back(t_stack *stk);
 t_int	front(t_stack *stk);
 void	pop_back(t_stack *stk);
