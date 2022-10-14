@@ -28,8 +28,18 @@ void	push_dst(t_stack *src, t_stack *dst)
 	return ;
 }
 
+void	push_dst_mid(t_stack *src, t_stack *dst, t_int mid)
+{
+	push(src, dst);
+	ft_printf("p%c\n", dst->name);
+	if (front(dst) >= mid)
+		rotate_x(dst);
+	return ;
+}
+
 void	push_b_not_lis(t_stack *a, t_stack *b, t_lis *is_lis)
 {
+	const t_int		mid = a->size / 2;
 	const t_bool	is_rot = is_rotate(a, is_lis);
 
 	if (is_lis->size == a->size)
@@ -37,7 +47,7 @@ void	push_b_not_lis(t_stack *a, t_stack *b, t_lis *is_lis)
 	while (!is_asc_stack(a))
 	{
 		if (is_lis->arr.data[front(a)] == 0)
-			push_dst(a, b);
+			push_dst_mid(a, b, mid);
 		else
 		{
 			if (is_rot)
