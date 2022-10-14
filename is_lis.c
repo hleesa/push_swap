@@ -14,22 +14,22 @@
 
 void	get_is_lis(t_arr *arr, t_arr *memo, t_arr *from, t_arr *is_lis)
 {
-	size_t	i;
-	t_int	last_idx;
-	const t_int lis_len = get_lis_len(memo);
+	size_t		i;
+	t_int		end_val;
+	const t_int	lis_len = get_lis_len(memo);
 
 	i = 0;
 	while (++i < memo->size)
 	{
 		if (memo->data[i] == lis_len)
-			last_idx = i;
+			end_val = arr->data[i];
 	}
-	while (from->data[last_idx] != -1)
+	while (from->data[end_val] != -1)
 	{
-		is_lis->data[arr->data[last_idx]] = 1;
-		last_idx = from->data[last_idx];
+		is_lis->data[end_val] = 1;
+		end_val = from->data[end_val];
 	}
-	is_lis->data[arr->data[last_idx]] = 1;
+	is_lis->data[end_val] = 1;
 	return ;
 }
 

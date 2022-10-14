@@ -28,30 +28,32 @@ void	init_memo_from(t_arr *arr, t_arr *memo, t_arr *from)
 	return ;
 }
 
-void	get_lis_memo_from_offset(t_stack *stk, t_arr *memo, t_arr *from, \
-size_t offset)
+void	get_lis_memo_from_offset(t_arr *arr, t_arr *memo, t_arr *from, \
+size_t ofs)
 {
 	size_t	i;
 	size_t	j;
-	t_arr	arr;
+	size_t	i_ofs;
+	size_t	j_ofs;
 
-	stack_to_arr(stk, &arr);
-	init_memo_from(&arr, memo, from);
+	init_memo_from(arr, memo, from);
 	i = -1;
-	while (++i < arr.size)
+	while (++i < arr->size)
 	{
-		memo->data[(i + offset) % arr.size] = 1;
+		i_ofs = (i + ofs) % arr->size;
+		memo->data[i_ofs] = 1;
 		j = -1;
 		while (++j < i)
 		{
-			if (arr.data[(j + offset) % arr.size] < arr.data[(i + offset) % arr.size] && memo->data[(j + offset) % arr.size] + 1 > memo->data[(i + offset) % arr.size])
+			j_ofs = (j + ofs) % arr->size;
+			if (arr->data[j_ofs] < arr->data[i_ofs] && \
+			memo->data[j_ofs] + 1 > memo->data[i_ofs])
 			{
-				memo->data[(i + offset) % arr.size] = memo->data[(j + offset) % arr.size] + 1;
-				from->data[(i + offset) % arr.size] = (j + offset) % arr.size;
+				memo->data[i_ofs] = memo->data[j_ofs] + 1;
+				from->data[arr->data[i_ofs]] = arr->data[j_ofs];
 			}
 		}
 	}
-	free(arr.data);
 	return ;
 }
 
@@ -100,7 +102,11 @@ void	get_lis_memo_from(t_stack *stk, t_arr *memo, t_arr *from)
 	offset = -1;
 	while (++offset < stk->size)
 	{
-		get_lis_memo_from_offset(stk, &c_memo, &c_from, offset);
+		get_lis_memo_from_offset(&arr, &c_memo, &c_from, offset);
 		update_lis(memo, from, &c_memo, &c_from);
+		free(c_memo.data);
+		free(c_from.data);
 	}
+	free(arr.data);
+	return ;
 }
